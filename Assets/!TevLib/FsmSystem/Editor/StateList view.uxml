@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/!TevLib/FsmSystem/Editor/StateList%20Style.uss?fileID=7433441132597879392&amp;guid=cad200c36d3b13f4d8a222f4cf1548ad&amp;type=3#StateList Style"/>
+    <ui:VisualElement name="container" class="container-box" style="flex-grow: 0;">
+        <ui:Button text="📁SelectFolder" name="folder-btn" class="btn"/>
+        <ui:Label text="Label" name="selected-label" class="selected-label"/>
+        <ui:Button text="⚙️Create" name="generate-btn" class="btn"/>
+    </ui:VisualElement>
+</ui:UXML>

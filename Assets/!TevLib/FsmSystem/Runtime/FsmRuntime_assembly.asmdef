@@ -1,0 +1,16 @@
+{
+    "name": "FsmRuntime_assembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e0718e695db84b16931daab602c7066b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

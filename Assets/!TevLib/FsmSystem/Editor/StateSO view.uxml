@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="container" style="flex-grow: 1;">
+        <ui:TextField label="상태 이름" placeholder-text="State Name" name="state-name" binding-path="stateName"/>
+        <ui:DropdownField label="클래스 이름" name="state-class" binding-path="className" view-data-key=""/>
+        <ui:IntegerField label="상태 번호" value="-1" name="asset-index" binding-path="assetIndex"/>
+        <uie:ObjectField label="애니메이션 Hash" name="hash-data" type="_TevLib.HashDataSystem.AnimHashSO, HashDataSystem_assembly" binding-path="animHash"/>
+    </ui:VisualElement>
+</ui:UXML>

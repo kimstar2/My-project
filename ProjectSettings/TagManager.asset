@@ -2,18 +2,19 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - System
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Obstacle
   - 
   - 
   - 
@@ -41,3 +42,29 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 2267346181
+    locked: 0
+  - name: Ground
+    uniqueID: 826660401
+    locked: 0
+  - name: BackVFX
+    uniqueID: 1448080073
+    locked: 0
+  - name: Object
+    uniqueID: 3481957103
+    locked: 0
+  - name: MapVFX
+    uniqueID: 2558475817
+    locked: 0
+  - name: FrontGround
+    uniqueID: 1298342433
+    locked: 0
+  - name: FrontVFX
+    uniqueID: 936991025
+    locked: 0
+  - name: UI
+    uniqueID: 2934667243
+    locked: 0
+  m_RenderingLayers:
+  - Default

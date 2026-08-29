@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f077a422b74ec498641755842bd13d, type: 3}
+  m_Name: Player Fsm list
+  m_EditorClassIdentifier: FsmRuntime_assembly::_TevLib.FsmSystem.Runtime.StateListSO
+  generatePath: C:/Users/kimj0/UnityProject/My project/Assets/Scripts/Agent/Player/Fsm
+  enumName: PlayerState
+  states:
+  - {fileID: 11400000, guid: 4fec4616357a7e74eba77fef3a8dcc25, type: 2}
+  - {fileID: 11400000, guid: 69c861e41167228499d0ed3d4e106ee2, type: 2}
+  - {fileID: 11400000, guid: a951931bad0bf354c9d0eeb0237449ef, type: 2}
