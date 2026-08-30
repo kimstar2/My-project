@@ -60,7 +60,6 @@ namespace _01.Scripts.Agent.Enemies
             
             for (int i = 0; i < count; i++)
             {
-                Debug.Log(ColliderResults[i].gameObject.name);
                 GameObject candidate = ColliderResults[i].gameObject;
                 
                 float distance = Vector2.Distance(candidate.transform.position, transform.position);

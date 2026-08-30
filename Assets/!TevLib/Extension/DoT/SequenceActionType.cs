@@ -17,6 +17,18 @@ namespace _TevLib.Extension.DoT
         [InspectorName("DOMove")]
         DoMove,
         [InspectorName("DOLocalRotation")]
-        DoLocalRotation
+        DoLocalRotation,
+        [InspectorName("DOColor")]
+        DoColor,
+        [InspectorName("DOFade")]
+        DoFade,
+        [InspectorName("DOLocalMove")]
+        DoLocalMove,
+        [InspectorName("DORotate")]
+        DoRotate,
+        [InspectorName("DOSizeDelta")]
+        DoSizeDelta,
+        [InspectorName("DOFillAmount")]
+        DoFillAmount
     }
 }

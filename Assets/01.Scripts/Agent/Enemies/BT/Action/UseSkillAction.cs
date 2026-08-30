@@ -37,7 +37,6 @@ namespace _01.Scripts.Agent.Enemies.BT.Action
             _skillModule.OnSkillEnd -= HandleSkillEnd;
             _skillModule.OnSkillEnd += HandleSkillEnd;
             _skillModule.UseSkill(skillId , TargetGO.Value);
-            Debug.Log("Skill Use");
             
             return Status.Running;
         }

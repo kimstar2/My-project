@@ -21,7 +21,9 @@ MonoBehaviour:
   canMove: 1
   maxRange: 3
   defaultAnimHash: {fileID: 11400000, guid: d15cbc98fc328c14cad1f5e8f683e928, type: 2}
-  damageMultiplier: 1
-  baseSkillDamage: 3
+  NotifyDamageMultiplier:
+    value: 2
+  NotifyBaseSkillDamage:
+    value: 1
   kbForce: 0
   cooldownTime: 0.5

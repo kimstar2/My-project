@@ -15,6 +15,7 @@ namespace _TevLib.Extension.DoT
         
         [field:SerializeField] public Vector3 TransformValue { get; private set; }
         [field:SerializeField] public float FadeValue { get; private set; }
+        [field:SerializeField] public Color ColorValue { get; private set; }
         
         [field: SerializeField] public UnityEvent Callback { get; private set; }
 

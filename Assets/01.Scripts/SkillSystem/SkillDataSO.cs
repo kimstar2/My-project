@@ -1,3 +1,4 @@
+using _TevLib.CoreLib;
 using _TevLib.HashDataSystem;
 using UnityEngine;
 
@@ -30,8 +31,9 @@ namespace _01.Scripts.SkillSystem
         public bool canMove;
         public float maxRange;
         public AnimHashSO defaultAnimHash;
-        public float damageMultiplier = 1f;
-        public float baseSkillDamage = 3f;
+
+        public NotifyValue<float> NotifyDamageMultiplier = new(1f);
+        public NotifyValue<float> NotifyBaseSkillDamage = new(3f);
         public float kbForce = 0f;
         public float cooldownTime = 0.5f;
 

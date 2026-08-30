@@ -3,6 +3,7 @@ using _TevLib.HashDataSystem;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace _TevLib.Extension.DoT
 {
@@ -30,6 +31,9 @@ namespace _TevLib.Extension.DoT
         private Transform _transform;
         private RectTransform _rectTrm;
         private CanvasGroup _canvasGroup;
+        private Graphic _graphic;
+        private Image _image;
+        private SpriteRenderer _spriteRenderer;
         
         private Sequence _activeSequence;
         
@@ -44,9 +48,14 @@ namespace _TevLib.Extension.DoT
             {
                 _rectTrm = targetTrm.GetComponent<RectTransform>();
                 _canvasGroup = targetTrm.GetComponent<CanvasGroup>();
+                _graphic = targetTrm.GetComponent<Graphic>();
+                _image = targetTrm.GetComponent<Image>();
             }
             else
+            {
                 _transform = targetTrm;
+                _spriteRenderer = targetTrm.GetComponent<SpriteRenderer>();
+            }
         }
 
         public bool SequenceAndResult()
@@ -78,6 +87,7 @@ namespace _TevLib.Extension.DoT
             return true;
         }
         
+        [ContextMenu("Sequence")]
         public void Sequence()
         {
             KillTween();
@@ -180,6 +190,18 @@ namespace _TevLib.Extension.DoT
                     return CreateMoveTween(step);
                 case SequenceActionType.DoLocalRotation:
                     return CreateLocalRotationTween(step);
+                case SequenceActionType.DoColor:
+                    return CreateColorTween(step);
+                case SequenceActionType.DoFade:
+                    return CreateFadeTween(step);
+                case SequenceActionType.DoLocalMove:
+                    return CreateLocalMoveTween(step);
+                case SequenceActionType.DoRotate:
+                    return CreateRotationTween(step);
+                case SequenceActionType.DoSizeDelta:
+                    return CreateSizeDeltaTween(step);
+                case SequenceActionType.DoFillAmount:
+                    return CreateFillAmountTween(step);
             }
 
             return null;
@@ -213,6 +235,68 @@ namespace _TevLib.Extension.DoT
 
         private Tween CreateLocalRotationTween(TweenStep step)
             => (IsCanvas ? _rectTrm : _transform).DOLocalRotate(step.TransformValue, step.Duration);
+
+        private Tween CreateLocalMoveTween(TweenStep step)
+            => (IsCanvas ? _rectTrm : _transform).DOLocalMove(step.TransformValue, step.Duration);
+
+        private Tween CreateRotationTween(TweenStep step)
+            => (IsCanvas ? _rectTrm : _transform).DORotate(step.TransformValue, step.Duration);
+
+        private Tween CreateColorTween(TweenStep step)
+        {
+            if (IsCanvas)
+            {
+                if (_graphic == null)
+                    return LogMissingComponent<Graphic>(step.ActionType);
+
+                return _graphic.DOColor(step.ColorValue, step.Duration);
+            }
+
+            if (_spriteRenderer == null)
+                return LogMissingComponent<SpriteRenderer>(step.ActionType);
+
+            return _spriteRenderer.DOColor(step.ColorValue, step.Duration);
+        }
+
+        private Tween CreateFadeTween(TweenStep step)
+        {
+            float alpha = Mathf.Clamp01(step.FadeValue);
+
+            if (IsCanvas)
+            {
+                if (_graphic == null)
+                    return LogMissingComponent<Graphic>(step.ActionType);
+
+                return _graphic.DOFade(alpha, step.Duration);
+            }
+
+            if (_spriteRenderer == null)
+                return LogMissingComponent<SpriteRenderer>(step.ActionType);
+
+            return _spriteRenderer.DOFade(alpha, step.Duration);
+        }
+
+        private Tween CreateSizeDeltaTween(TweenStep step)
+        {
+            if (_rectTrm == null)
+                return LogMissingComponent<RectTransform>(step.ActionType);
+
+            return _rectTrm.DOSizeDelta(step.TransformValue, step.Duration);
+        }
+
+        private Tween CreateFillAmountTween(TweenStep step)
+        {
+            if (_image == null)
+                return LogMissingComponent<Image>(step.ActionType);
+
+            return _image.DOFillAmount(Mathf.Clamp01(step.FadeValue), step.Duration);
+        }
+
+        private Tween LogMissingComponent<T>(SequenceActionType actionType) where T : Component
+        {
+            Debug.LogWarning($"{name}: {actionType} requires {typeof(T).Name} on {targetTrm.name}.", this);
+            return null;
+        }
         
         private void KillTween()
         {

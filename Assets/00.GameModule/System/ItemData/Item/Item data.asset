@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2cffd0cd14ca68c00cc806cc7eacf, type: 3}
+  m_Name: Item data
+  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.ItemSystem.ItemSO
+  itemType: 0
+  poolItemSO: {fileID: 11400000, guid: f5ee3fcec47d0ed4a91e76cb0c61fe84, type: 2}
+  minAmount: 6
+  maxAmount: 12

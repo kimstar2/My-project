@@ -12,6 +12,7 @@ namespace _TevLib.Extension.DoT.Editor
         private const string DurationName = "<Duration>k__BackingField";
         private const string TransformValueName = "<TransformValue>k__BackingField";
         private const string FadeValueName = "<FadeValue>k__BackingField";
+        private const string ColorValueName = "<ColorValue>k__BackingField";
         private const string CallbackName = "<Callback>k__BackingField";
 
         private static readonly GUIContent InsertTypeLabel = new GUIContent("Insert Type");
@@ -24,7 +25,13 @@ namespace _TevLib.Extension.DoT.Editor
         private static readonly GUIContent AnchoredPositionLabel = new GUIContent("Anchored Position");
         private static readonly GUIContent LocalScaleLabel = new GUIContent("Local Scale");
         private static readonly GUIContent LocalRotationLabel = new GUIContent("Local Rotation");
+        private static readonly GUIContent LocalPositionLabel = new GUIContent("Local Position");
+        private static readonly GUIContent RotationLabel = new GUIContent("Rotation");
+        private static readonly GUIContent SizeDeltaLabel = new GUIContent("Size Delta");
         private static readonly GUIContent FadeValueLabel = new GUIContent("Fade Value");
+        private static readonly GUIContent AlphaLabel = new GUIContent("Alpha");
+        private static readonly GUIContent FillAmountLabel = new GUIContent("Fill Amount");
+        private static readonly GUIContent ColorLabel = new GUIContent("Color");
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -145,9 +152,17 @@ namespace _TevLib.Extension.DoT.Editor
             SerializedProperty property,
             SequenceActionType action)
         {
-            return action == SequenceActionType.DoCanvasAlpha
-                ? Find(property, FadeValueName)
-                : Find(property, TransformValueName);
+            switch (action)
+            {
+                case SequenceActionType.DoCanvasAlpha:
+                case SequenceActionType.DoFade:
+                case SequenceActionType.DoFillAmount:
+                    return Find(property, FadeValueName);
+                case SequenceActionType.DoColor:
+                    return Find(property, ColorValueName);
+                default:
+                    return Find(property, TransformValueName);
+            }
         }
 
         private static GUIContent GetActionValueLabel(SequenceActionType action)
@@ -162,6 +177,18 @@ namespace _TevLib.Extension.DoT.Editor
                     return LocalScaleLabel;
                 case SequenceActionType.DoLocalRotation:
                     return LocalRotationLabel;
+                case SequenceActionType.DoColor:
+                    return ColorLabel;
+                case SequenceActionType.DoFade:
+                    return AlphaLabel;
+                case SequenceActionType.DoLocalMove:
+                    return LocalPositionLabel;
+                case SequenceActionType.DoRotate:
+                    return RotationLabel;
+                case SequenceActionType.DoSizeDelta:
+                    return SizeDeltaLabel;
+                case SequenceActionType.DoFillAmount:
+                    return FillAmountLabel;
                 default:
                     return PositionLabel;
             }

@@ -1,35 +1,38 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace _TevLib.CoreLib
 {
+    [Serializable]
     public class NotifyValue<T>
     {
         public delegate void ValueChanged(T prev , T next); // 매개변수 이름 땜시
         public event ValueChanged OnValueChanged;
         
-        private T _value;
+        [SerializeField] private T value;
 
         public T Value
         {
-            get => _value;
+            get => value;
             set
             {
-                T prev = _value;
+                T prev = this.value;
                 if (EqualityComparer<T>.Default.Equals(prev, value)) return;
                 
-                _value = value;
-                OnValueChanged?.Invoke(prev, _value);
+                this.value = value;
+                OnValueChanged?.Invoke(prev, this.value);
             }
         }
 
         public NotifyValue()
         {
-            _value = default;
+            value = default;
         }
         
         public NotifyValue(T value)
         {
-            _value = value;
+            this.value = value;
         }
     }
 }

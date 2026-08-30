@@ -1,6 +1,10 @@
+using System;
 using _01.Scripts.Agent.Interface;
 using _01.Scripts.CombatSystem;
+using _01.Scripts.GameSystem.GameServices;
 using _01.Scripts.SkillSystem;
+using _TevLib.CoreLib.EventSystem;
+using _TevLib.ServiceLocatorSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +17,7 @@ namespace _01.Scripts.Agent.Player.Skill
         private IRenderable _renderer;
         private IAnimatorTrigger _trigger;
         private AbstractDamageCaster _damageCaster;
+        public UnityEvent<float> onBindDamage;
         
         public override void InitializeSkill(ISkillModule skillModule)
         {
@@ -24,8 +29,21 @@ namespace _01.Scripts.Agent.Player.Skill
             
             _damageCaster = GetComponentInChildren<AbstractDamageCaster>();
             _damageCaster?.InitCaster(skillModule.Owner);
-            
+            onBindDamage?.Invoke(SkillModule.GetBaseDamage(SkillData));
         }
+
+        private void OnEnable()
+        {
+            SkillData.NotifyBaseSkillDamage.OnValueChanged += HandleNotifyDamageChanged;
+            SkillData.NotifyDamageMultiplier.OnValueChanged += HandleNotifyDamageChanged;
+        }
+        
+        private void OnDisable()
+        {
+            SkillData.NotifyBaseSkillDamage.OnValueChanged -= HandleNotifyDamageChanged;
+            SkillData.NotifyDamageMultiplier.OnValueChanged -= HandleNotifyDamageChanged;
+        }
+        private void HandleNotifyDamageChanged(float prev, float next) => onBindDamage?.Invoke(SkillModule.GetBaseDamage(SkillData));
 
         public override bool CanUseSkill(GameObject target = null) => !IsUsing;
 

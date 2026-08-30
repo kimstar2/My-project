@@ -7,7 +7,7 @@ namespace _01.Scripts.Agent.Enemies.Skill
     {
         public override float GetBaseDamage(SkillDataSO skillData)
         {
-            return skillData.baseSkillDamage * skillData.damageMultiplier;
+            return skillData.NotifyBaseSkillDamage.Value * skillData.NotifyDamageMultiplier.Value;
         }
     }
 }

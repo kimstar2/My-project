@@ -7,11 +7,11 @@ namespace _TevLib.ServiceLocatorSystem.PoolService
     public class PoolingService : MonoBehaviour , IPoolingService
     {
         [SerializeField] private PoolingListSO poolingList;
-        private Dictionary<Type, Pool> _poolDict;
+        private Dictionary<PoolItemSO, Pool> _poolDict;
 
         private void Awake()
         {
-            _poolDict = new Dictionary<Type, Pool>();
+            _poolDict = new Dictionary<PoolItemSO, Pool>();
 
             foreach (PoolItemSO item in poolingList.itemList)
                 CreatePool(item);
@@ -23,12 +23,12 @@ namespace _TevLib.ServiceLocatorSystem.PoolService
         {
             IPoolable poolable = item.prefab.GetComponent<IPoolable>();
             Pool pool = new Pool(poolable, transform, item.count);
-            _poolDict.Add(item.itemName.GetType(), pool);
+            _poolDict.Add(item, pool);
         }
 
         public IPoolable Pop(PoolItemSO itemSo)
         {
-            if (!_poolDict.TryGetValue(itemSo.itemName.GetType(), out Pool pool)) return null;
+            if (!_poolDict.TryGetValue(itemSo, out Pool pool)) return null;
             
             IPoolable item = pool.Pop();
             item.ResetItem();
@@ -37,7 +37,7 @@ namespace _TevLib.ServiceLocatorSystem.PoolService
 
         public void Push(IPoolable item)
         {
-            if (_poolDict.TryGetValue(item.Item.itemName.GetType(), out Pool pool))
+            if (_poolDict.TryGetValue(item.Item, out Pool pool))
                 pool.Push(item);
         }
 

@@ -1,5 +1,4 @@
 using System;
-using _01.Scripts.Agent.Health;
 using _01.Scripts.CombatSystem;
 using UnityEngine;
 using UnityEngine.Events;

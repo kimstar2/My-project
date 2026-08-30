@@ -1,5 +1,4 @@
 using _01.Scripts.Agent;
-using _01.Scripts.Agent.Health;
 using _TevLib.ModuleSystem;
 using UnityEngine;
 using UnityEngine.Events;

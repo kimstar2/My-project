@@ -15,7 +15,7 @@ TagManager:
   - Player
   - Enemy
   - Obstacle
-  - 
+  - Collectable
   - 
   - 
   - 
@@ -59,6 +59,9 @@ TagManager:
     locked: 0
   - name: FrontGround
     uniqueID: 1298342433
+    locked: 0
+  - name: FrontProb
+    uniqueID: 1914049297
     locked: 0
   - name: FrontVFX
     uniqueID: 936991025

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5ea49c5b443a5b4ba5a165684bb67, type: 3}
+  m_Name: Enemy_1DropT
+  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.ItemSystem.DropTableSO
+  dropTable:
+  - item: {fileID: 11400000, guid: 928716bd02120fa4f96c753306e31e2c, type: 2}
+    dropRate: 1

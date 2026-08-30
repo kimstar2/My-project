@@ -33,6 +33,7 @@ Transform:
   - {fileID: 1807748990171736193}
   - {fileID: 1738211662731559768}
   - {fileID: 7488310695484076542}
+  - {fileID: 1196750820172951162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575801970890347211
@@ -173,6 +174,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ServiceLocatorSystem_assembly::_TevLib.ServiceLocatorSystem.AudioService
   soundPlayerPrefab: {fileID: 1122453684397390397, guid: 9e5f4191267b3114caf162696284c313, type: 3}
+--- !u!1 &6267044983430868858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196750820172951162}
+  - component: {fileID: 6869822048130598894}
+  m_Layer: 0
+  m_Name: GetEventService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196750820172951162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267044983430868858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4633401076528614430}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6869822048130598894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267044983430868858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79d0035f07d413f97b3c9aab7900982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.GameSystem.GameServices.GetEvtService
+  <EvtChannel>k__BackingField: {fileID: 11400000, guid: 3387e57f5a288244dbfbe7e0a641d889, type: 2}
 --- !u!1 &7537039059805876853
 GameObject:
   m_ObjectHideFlags: 0
