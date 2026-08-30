@@ -612,7 +612,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 0
     <EaseType>k__BackingField: 9
     <Duration>k__BackingField: 2
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -673,7 +676,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 3
     <Duration>k__BackingField: 0.1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: -55}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: -60}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -683,7 +689,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 4
     <EaseType>k__BackingField: 27
     <Duration>k__BackingField: 0.3
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -705,7 +714,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 27
     <Duration>k__BackingField: 0.3
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 30}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 30}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -2784,7 +2796,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 0
     <EaseType>k__BackingField: 9
     <Duration>k__BackingField: 0.3
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -7885,7 +7900,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 0
     <EaseType>k__BackingField: 9
     <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -18948,33 +18966,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 680931629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7152fdc97db23d449cfb3617b81ed3c, type: 3}
+  m_Script: {fileID: 11500000, guid: e3f180f756a34f4099aad8d97d3d8dd2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenSequencer
+  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.RandomSequencer
   debugMode: 0
   <IsCanvas>k__BackingField: 1
   targetTrm: {fileID: 680931630}
   sequenceStep:
-  - <ActionType>k__BackingField: 1
-    <InsertType>k__BackingField: 3
-    <EaseType>k__BackingField: 12
-    <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 132, y: -290, z: 0}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
-  - <ActionType>k__BackingField: 5
-    <InsertType>k__BackingField: 6
-    <EaseType>k__BackingField: 28
-    <Duration>k__BackingField: 0.7
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: -28}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
+  - steps:
+    - {fileID: 11400000, guid: ba09c17af45ce2244a4882a509e9f793, type: 2}
+  - steps:
+    - {fileID: 11400000, guid: eb25529a2841243458914002d3f7bf0d, type: 2}
   updateType: 0
   independentTime: 0
   targetLink: 0
@@ -70325,7 +70327,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1309775143}
-          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.TweenSequencer, Assembly-CSharp
+          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.RandomSequencer, Assembly-CSharp
           m_MethodName: Sequence
           m_Mode: 1
           m_Arguments:
@@ -70341,7 +70343,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 680931634}
-          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.TweenSequencer, Assembly-CSharp
+          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.RandomSequencer, Assembly-CSharp
           m_MethodName: Sequence
           m_Mode: 1
           m_Arguments:
@@ -70357,7 +70359,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2042782971}
-          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.TweenSequencer, Assembly-CSharp
+          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.RandomSequencer, Assembly-CSharp
           m_MethodName: Sequence
           m_Mode: 1
           m_Arguments:
@@ -71980,7 +71982,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 0
     <EaseType>k__BackingField: 9
     <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -72587,33 +72592,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309775138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7152fdc97db23d449cfb3617b81ed3c, type: 3}
+  m_Script: {fileID: 11500000, guid: e3f180f756a34f4099aad8d97d3d8dd2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenSequencer
+  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.RandomSequencer
   debugMode: 0
   <IsCanvas>k__BackingField: 1
   targetTrm: {fileID: 1309775139}
   sequenceStep:
-  - <ActionType>k__BackingField: 1
-    <InsertType>k__BackingField: 3
-    <EaseType>k__BackingField: 12
-    <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: -181, y: 253, z: 0}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
-  - <ActionType>k__BackingField: 5
-    <InsertType>k__BackingField: 6
-    <EaseType>k__BackingField: 28
-    <Duration>k__BackingField: 0.7
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 3}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
+  - steps:
+    - {fileID: 11400000, guid: 9493f474c5acec34b9d102f4c211708c, type: 2}
+  - steps:
+    - {fileID: 11400000, guid: eb25529a2841243458914002d3f7bf0d, type: 2}
   updateType: 0
   independentTime: 0
   targetLink: 0
@@ -78110,7 +78099,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 1
     <Duration>k__BackingField: 0
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0.6
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -78120,7 +78112,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 1
     <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -83140,7 +83135,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 0
     <EaseType>k__BackingField: 9
     <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -83448,16 +83446,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808313949}
-  m_LocalRotation: {x: 0, y: 0, z: 0.095845714, w: 0.99539626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 746718349}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 654, y: 1355}
+  m_AnchoredPosition: {x: 477, y: 1272}
   m_SizeDelta: {x: 460, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1808313951
@@ -83530,13 +83528,9 @@ MonoBehaviour:
   targetTrm: {fileID: 1808313950}
   sequenceStep:
   - steps:
-    - {fileID: 11400000, guid: 346ed87282f6c3443ac011c3c5fa7fea, type: 2}
-    - {fileID: 11400000, guid: 2c35dee38f1c94747a8abb45957c2143, type: 2}
     - {fileID: 11400000, guid: a17dcb57ed519894f83b84376b60db99, type: 2}
   - steps:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: eb25529a2841243458914002d3f7bf0d, type: 2}
   updateType: 0
   independentTime: 0
   targetLink: 0
@@ -84342,7 +84336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 621, y: -1163}
+  m_AnchoredPosition: {x: 486, y: -1090}
   m_SizeDelta: {x: 460, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042782968
@@ -84407,33 +84401,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2042782966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7152fdc97db23d449cfb3617b81ed3c, type: 3}
+  m_Script: {fileID: 11500000, guid: e3f180f756a34f4099aad8d97d3d8dd2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenSequencer
+  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.RandomSequencer
   debugMode: 0
   <IsCanvas>k__BackingField: 1
   targetTrm: {fileID: 2042782967}
   sequenceStep:
-  - <ActionType>k__BackingField: 1
-    <InsertType>k__BackingField: 3
-    <EaseType>k__BackingField: 12
-    <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: -27.8, y: -670, z: 0}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
-  - <ActionType>k__BackingField: 5
-    <InsertType>k__BackingField: 6
-    <EaseType>k__BackingField: 28
-    <Duration>k__BackingField: 0.7
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 13}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
+  - steps:
+    - {fileID: 11400000, guid: 548e8a4bb1e56ea4781daa5796319e3d, type: 2}
+  - steps:
+    - {fileID: 11400000, guid: eb25529a2841243458914002d3f7bf0d, type: 2}
   updateType: 0
   independentTime: 0
   targetLink: 0
@@ -84755,7 +84733,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 3
     <Duration>k__BackingField: 0.1
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 55}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 60}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -84765,7 +84746,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 4
     <EaseType>k__BackingField: 27
     <Duration>k__BackingField: 0.3
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:
@@ -84787,7 +84771,10 @@ MonoBehaviour:
     <InsertType>k__BackingField: 3
     <EaseType>k__BackingField: 27
     <Duration>k__BackingField: 0.3
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: -30}
+    <IsRandomizeValue>k__BackingField: 0
+    <UsingFastBeyond>k__BackingField: 0
+    <MinTransformValue>k__BackingField: {x: 0, y: 0, z: -30}
+    <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 0}
     <FadeValue>k__BackingField: 0
     <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <Callback>k__BackingField:

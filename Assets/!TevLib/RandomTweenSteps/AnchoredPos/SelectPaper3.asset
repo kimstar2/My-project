@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ccac82395244db1aac17862d9c1a862, type: 3}
-  m_Name: join(Z5)
+  m_Name: SelectPaper3
   m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenStepSO
-  <ActionType>k__BackingField: 5
-  <InsertType>k__BackingField: 6
-  <EaseType>k__BackingField: 28
-  <Duration>k__BackingField: 0.7
-  <TransformValue>k__BackingField: {x: 0, y: 0, z: 5}
+  <ActionType>k__BackingField: 1
+  <InsertType>k__BackingField: 3
+  <EaseType>k__BackingField: 12
+  <Duration>k__BackingField: 1
+  <IsRandomizeValue>k__BackingField: 1
+  <UsingFastBeyond>k__BackingField: 0
+  <MinTransformValue>k__BackingField: {x: 190, y: -375, z: 0}
+  <MaxTransformValue>k__BackingField: {x: -65, y: -275, z: 0}
   <FadeValue>k__BackingField: 0
   <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <Callback>k__BackingField:

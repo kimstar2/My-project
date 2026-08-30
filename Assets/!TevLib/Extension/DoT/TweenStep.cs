@@ -15,6 +15,7 @@ namespace _TevLib.Extension.DoT
         [field: SerializeField] public float Duration { get; private set; }
         
         [field:SerializeField] public bool IsRandomizeValue { get; private set; }
+        [field:SerializeField] public bool UsingFastBeyond { get; private set; }
         [field:SerializeField] public Vector3 MinTransformValue { get; private set; }
         [field:SerializeField] public Vector3 MaxTransformValue { get; private set; }
 

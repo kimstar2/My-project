@@ -10,7 +10,10 @@ namespace _TevLib.Extension.DoT.Editor
         private const string InsertTypeName = "<InsertType>k__BackingField";
         private const string EaseTypeName = "<EaseType>k__BackingField";
         private const string DurationName = "<Duration>k__BackingField";
-        private const string TransformValueName = "<TransformValue>k__BackingField";
+        private const string IsRandomizeValueName = "<IsRandomizeValue>k__BackingField";
+        private const string UsingFastBeyondName = "<UsingFastBeyond>k__BackingField";
+        private const string MinTransformValueName = "<MinTransformValue>k__BackingField";
+        private const string MaxTransformValueName = "<MaxTransformValue>k__BackingField";
         private const string FadeValueName = "<FadeValue>k__BackingField";
         private const string ColorValueName = "<ColorValue>k__BackingField";
         private const string CallbackName = "<Callback>k__BackingField";
@@ -32,6 +35,8 @@ namespace _TevLib.Extension.DoT.Editor
         private static readonly GUIContent AlphaLabel = new GUIContent("Alpha");
         private static readonly GUIContent FillAmountLabel = new GUIContent("Fill Amount");
         private static readonly GUIContent ColorLabel = new GUIContent("Color");
+        private static readonly GUIContent RandomizeValueLabel = new GUIContent("Randomize Value");
+        private static readonly GUIContent FastBeyondLabel = new GUIContent("Fast Beyond 360");
 
         public override void OnInspectorGUI()
         {
@@ -74,9 +79,39 @@ namespace _TevLib.Extension.DoT.Editor
         private void DrawTweenFields(SequenceActionType action)
         {
             DrawTweenTimingFields();
+
+            if (IsRotationAction(action))
+                EditorGUILayout.PropertyField(Find(UsingFastBeyondName), FastBeyondLabel);
+
+            if (UsesTransformValue(action))
+            {
+                DrawTransformValueFields(action);
+                return;
+            }
+
             EditorGUILayout.PropertyField(
                 GetActionValueProperty(action),
                 GetActionValueLabel(action));
+        }
+
+        private void DrawTransformValueFields(SequenceActionType action)
+        {
+            SerializedProperty randomizeValue = Find(IsRandomizeValueName);
+            EditorGUILayout.PropertyField(randomizeValue, RandomizeValueLabel);
+
+            GUIContent valueLabel = GetActionValueLabel(action);
+            if (!randomizeValue.boolValue)
+            {
+                EditorGUILayout.PropertyField(Find(MinTransformValueName), valueLabel);
+                return;
+            }
+
+            EditorGUILayout.PropertyField(
+                Find(MinTransformValueName),
+                new GUIContent($"Min {valueLabel.text}"));
+            EditorGUILayout.PropertyField(
+                Find(MaxTransformValueName),
+                new GUIContent($"Max {valueLabel.text}"));
         }
 
         private void DrawTweenTimingFields()
@@ -96,7 +131,7 @@ namespace _TevLib.Extension.DoT.Editor
                 case SequenceActionType.DoColor:
                     return Find(ColorValueName);
                 default:
-                    return Find(TransformValueName);
+                    return Find(FadeValueName);
             }
         }
 
@@ -134,6 +169,17 @@ namespace _TevLib.Extension.DoT.Editor
 
         private static bool IsSingleTween(SequenceActionType action)
             => action == SequenceActionType.DoTween;
+
+        private static bool UsesTransformValue(SequenceActionType action)
+            => action != SequenceActionType.DoTween
+               && action != SequenceActionType.DoCanvasAlpha
+               && action != SequenceActionType.DoColor
+               && action != SequenceActionType.DoFade
+               && action != SequenceActionType.DoFillAmount;
+
+        private static bool IsRotationAction(SequenceActionType action)
+            => action == SequenceActionType.DoRotate
+               || action == SequenceActionType.DoLocalRotation;
 
         private static bool UsesInterval(SequenceInsertType insert)
             => insert == SequenceInsertType.PrependInterval

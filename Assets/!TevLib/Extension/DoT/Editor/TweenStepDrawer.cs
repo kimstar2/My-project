@@ -10,7 +10,10 @@ namespace _TevLib.Extension.DoT.Editor
         private const string InsertTypeName = "<InsertType>k__BackingField";
         private const string EaseTypeName = "<EaseType>k__BackingField";
         private const string DurationName = "<Duration>k__BackingField";
-        private const string TransformValueName = "<TransformValue>k__BackingField";
+        private const string IsRandomizeValueName = "<IsRandomizeValue>k__BackingField";
+        private const string UsingFastBeyondName = "<UsingFastBeyond>k__BackingField";
+        private const string MinTransformValueName = "<MinTransformValue>k__BackingField";
+        private const string MaxTransformValueName = "<MaxTransformValue>k__BackingField";
         private const string FadeValueName = "<FadeValue>k__BackingField";
         private const string ColorValueName = "<ColorValue>k__BackingField";
         private const string CallbackName = "<Callback>k__BackingField";
@@ -32,6 +35,8 @@ namespace _TevLib.Extension.DoT.Editor
         private static readonly GUIContent AlphaLabel = new GUIContent("Alpha");
         private static readonly GUIContent FillAmountLabel = new GUIContent("Fill Amount");
         private static readonly GUIContent ColorLabel = new GUIContent("Color");
+        private static readonly GUIContent RandomizeValueLabel = new GUIContent("Randomize Value");
+        private static readonly GUIContent FastBeyondLabel = new GUIContent("Fast Beyond 360");
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -118,6 +123,22 @@ namespace _TevLib.Extension.DoT.Editor
 
             height = AddHeight(height, Find(property, EaseTypeName));
             height = AddHeight(height, Find(property, DurationName));
+
+            if (IsRotationAction(action))
+                height = AddHeight(height, Find(property, UsingFastBeyondName));
+
+            if (UsesTransformValue(action))
+            {
+                SerializedProperty randomizeValue = Find(property, IsRandomizeValueName);
+                height = AddHeight(height, randomizeValue);
+                height = AddHeight(height, Find(property, MinTransformValueName));
+
+                if (randomizeValue.boolValue)
+                    height = AddHeight(height, Find(property, MaxTransformValueName));
+
+                return height;
+            }
+
             return AddHeight(height, GetActionValueProperty(property, action));
         }
 
@@ -129,11 +150,52 @@ namespace _TevLib.Extension.DoT.Editor
         {
             DrawTweenTimingFields(ref y, position, property);
 
+            if (IsRotationAction(action))
+                DrawProperty(
+                    ref y,
+                    position,
+                    Find(property, UsingFastBeyondName),
+                    FastBeyondLabel);
+
+            if (UsesTransformValue(action))
+            {
+                DrawTransformValueFields(ref y, position, property, action);
+                return;
+            }
+
             DrawProperty(
                 ref y,
                 position,
                 GetActionValueProperty(property, action),
                 GetActionValueLabel(action));
+        }
+
+        private static void DrawTransformValueFields(
+            ref float y,
+            Rect position,
+            SerializedProperty property,
+            SequenceActionType action)
+        {
+            SerializedProperty randomizeValue = Find(property, IsRandomizeValueName);
+            DrawProperty(ref y, position, randomizeValue, RandomizeValueLabel);
+
+            GUIContent valueLabel = GetActionValueLabel(action);
+            if (!randomizeValue.boolValue)
+            {
+                DrawProperty(ref y, position, Find(property, MinTransformValueName), valueLabel);
+                return;
+            }
+
+            DrawProperty(
+                ref y,
+                position,
+                Find(property, MinTransformValueName),
+                new GUIContent($"Min {valueLabel.text}"));
+            DrawProperty(
+                ref y,
+                position,
+                Find(property, MaxTransformValueName),
+                new GUIContent($"Max {valueLabel.text}"));
         }
 
         private static void DrawTweenTimingFields(
@@ -161,7 +223,7 @@ namespace _TevLib.Extension.DoT.Editor
                 case SequenceActionType.DoColor:
                     return Find(property, ColorValueName);
                 default:
-                    return Find(property, TransformValueName);
+                    return Find(property, FadeValueName);
             }
         }
 
@@ -213,6 +275,17 @@ namespace _TevLib.Extension.DoT.Editor
 
         private static SerializedProperty Find(SerializedProperty property, string relativeName)
             => property.FindPropertyRelative(relativeName);
+
+        private static bool UsesTransformValue(SequenceActionType action)
+            => action != SequenceActionType.DoTween
+               && action != SequenceActionType.DoCanvasAlpha
+               && action != SequenceActionType.DoColor
+               && action != SequenceActionType.DoFade
+               && action != SequenceActionType.DoFillAmount;
+
+        private static bool IsRotationAction(SequenceActionType action)
+            => action == SequenceActionType.DoRotate
+               || action == SequenceActionType.DoLocalRotation;
 
         private static bool UsesInterval(SequenceInsertType insert)
             => insert == SequenceInsertType.PrependInterval

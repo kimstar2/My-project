@@ -234,13 +234,19 @@ namespace _TevLib.Extension.DoT
         }
 
         private Tween CreateLocalRotationTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DOLocalRotate(step.GetTransformValue(), step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DOLocalRotate(step.GetTransformValue(), step.Duration,
+                step.UsingFastBeyond ?
+                RotateMode.FastBeyond360 :
+                RotateMode.Fast);
 
         private Tween CreateLocalMoveTween(TweenStep step)
             => (IsCanvas ? _rectTrm : _transform).DOLocalMove(step.GetTransformValue(), step.Duration);
 
         private Tween CreateRotationTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DORotate(step.GetTransformValue(), step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DORotate(step.GetTransformValue(), step.Duration,
+                step.UsingFastBeyond ?
+                    RotateMode.FastBeyond360 :
+                    RotateMode.Fast);
 
         private Tween CreateColorTween(TweenStep step)
         {

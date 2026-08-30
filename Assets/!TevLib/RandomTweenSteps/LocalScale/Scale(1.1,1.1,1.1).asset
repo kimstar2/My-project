@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ccac82395244db1aac17862d9c1a862, type: 3}
-  m_Name: append(-90,640)
+  m_Name: Scale(1.1,1.1,1.1)
   m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenStepSO
-  <ActionType>k__BackingField: 1
+  <ActionType>k__BackingField: 3
   <InsertType>k__BackingField: 3
-  <EaseType>k__BackingField: 12
-  <Duration>k__BackingField: 1
-  <TransformValue>k__BackingField: {x: -90, y: 640, z: 0}
+  <EaseType>k__BackingField: 9
+  <Duration>k__BackingField: 0.7
+  <IsRandomizeValue>k__BackingField: 0
+  <MinTransformValue>k__BackingField: {x: 1.2, y: 1.2, z: 1.2}
+  <MaxTransformValue>k__BackingField: {x: 0, y: 0, z: 365}
   <FadeValue>k__BackingField: 0
   <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <Callback>k__BackingField:
