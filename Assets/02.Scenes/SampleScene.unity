@@ -70308,8 +70308,8 @@ MonoBehaviour:
   - action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1808313954}
-          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.TweenSequencer, Assembly-CSharp
+        - m_Target: {fileID: 1808313955}
+          m_TargetAssemblyTypeName: _TevLib.Extension.DoT.RandomSequencer, Assembly-CSharp
           m_MethodName: Sequence
           m_Mode: 1
           m_Arguments:
@@ -83433,7 +83433,6 @@ GameObject:
   - component: {fileID: 1808313952}
   - component: {fileID: 1808313951}
   - component: {fileID: 1808313953}
-  - component: {fileID: 1808313954}
   - component: {fileID: 1808313955}
   m_Layer: 5
   m_Name: SelectPaper1
@@ -83458,7 +83457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: 644}
+  m_AnchoredPosition: {x: 654, y: 1355}
   m_SizeDelta: {x: 460, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1808313951
@@ -83514,50 +83513,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.8156863}
   m_EffectDistance: {x: -16, y: -16}
   m_UseGraphicAlpha: 1
---- !u!114 &1808313954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808313949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7152fdc97db23d449cfb3617b81ed3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenSequencer
-  debugMode: 0
-  <IsCanvas>k__BackingField: 1
-  targetTrm: {fileID: 1808313950}
-  sequenceStep:
-  - <ActionType>k__BackingField: 1
-    <InsertType>k__BackingField: 3
-    <EaseType>k__BackingField: 12
-    <Duration>k__BackingField: 1
-    <TransformValue>k__BackingField: {x: 187, y: 550, z: 0}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
-  - <ActionType>k__BackingField: 5
-    <InsertType>k__BackingField: 6
-    <EaseType>k__BackingField: 28
-    <Duration>k__BackingField: 0.7
-    <TransformValue>k__BackingField: {x: 0, y: 0, z: 13}
-    <FadeValue>k__BackingField: 0
-    <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-    <Callback>k__BackingField:
-      m_PersistentCalls:
-        m_Calls: []
-  updateType: 0
-  independentTime: 0
-  targetLink: 0
-  linkType: 0
-  id: {fileID: 0}
-  onSeqComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1808313955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83572,12 +83527,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.RandomSequencer
   debugMode: 0
   <IsCanvas>k__BackingField: 1
-  targetTrm: {fileID: 746718349}
+  targetTrm: {fileID: 1808313950}
   sequenceStep:
   - steps:
     - {fileID: 11400000, guid: 346ed87282f6c3443ac011c3c5fa7fea, type: 2}
-    - {fileID: 11400000, guid: 346ed87282f6c3443ac011c3c5fa7fea, type: 2}
-  - steps: []
+    - {fileID: 11400000, guid: 2c35dee38f1c94747a8abb45957c2143, type: 2}
+    - {fileID: 11400000, guid: a17dcb57ed519894f83b84376b60db99, type: 2}
+  - steps:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   updateType: 0
   independentTime: 0
   targetLink: 0

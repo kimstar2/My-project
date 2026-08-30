@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace _TevLib.Extension.DoT
 {
@@ -13,7 +14,22 @@ namespace _TevLib.Extension.DoT
         [field: SerializeField] public Ease EaseType { get; private set; }
         [field: SerializeField] public float Duration { get; private set; }
         
-        [field:SerializeField] public Vector3 TransformValue { get; private set; }
+        [field:SerializeField] public bool IsRandomizeValue { get; private set; }
+        [field:SerializeField] public Vector3 MinTransformValue { get; private set; }
+        [field:SerializeField] public Vector3 MaxTransformValue { get; private set; }
+
+        public Vector3 GetTransformValue()
+        {
+            Vector3 resultVector = MinTransformValue;
+            if (IsRandomizeValue)
+            {
+                float x = Random.Range(MinTransformValue.x, MaxTransformValue.x);
+                float y = Random.Range(MinTransformValue.y, MaxTransformValue.y);
+                float z = Random.Range(MinTransformValue.z, MaxTransformValue.z);
+                resultVector = new Vector3(x, y, z);
+            }
+            return resultVector;
+        }
         [field:SerializeField] public float FadeValue { get; private set; }
         [field:SerializeField] public Color ColorValue { get; private set; }
         

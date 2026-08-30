@@ -208,10 +208,10 @@ namespace _TevLib.Extension.DoT
         }
         
         private Tween CreateMoveTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DOMove(step.TransformValue, step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DOMove(step.GetTransformValue(), step.Duration);
 
         private Tween CreateLocalScaleTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DOScale(step.TransformValue, step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DOScale(step.GetTransformValue(), step.Duration);
 
         private Tween CreateCanvasAlpha(TweenStep step)
         {
@@ -230,17 +230,17 @@ namespace _TevLib.Extension.DoT
                 Debug.Log("Canvas not found");
                 return null;
             }
-            return _rectTrm.DOAnchorPos(step.TransformValue, step.Duration);
+            return _rectTrm.DOAnchorPos(step.GetTransformValue(), step.Duration);
         }
 
         private Tween CreateLocalRotationTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DOLocalRotate(step.TransformValue, step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DOLocalRotate(step.GetTransformValue(), step.Duration);
 
         private Tween CreateLocalMoveTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DOLocalMove(step.TransformValue, step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DOLocalMove(step.GetTransformValue(), step.Duration);
 
         private Tween CreateRotationTween(TweenStep step)
-            => (IsCanvas ? _rectTrm : _transform).DORotate(step.TransformValue, step.Duration);
+            => (IsCanvas ? _rectTrm : _transform).DORotate(step.GetTransformValue(), step.Duration);
 
         private Tween CreateColorTween(TweenStep step)
         {
@@ -281,7 +281,7 @@ namespace _TevLib.Extension.DoT
             if (_rectTrm == null)
                 return LogMissingComponent<RectTransform>(step.ActionType);
 
-            return _rectTrm.DOSizeDelta(step.TransformValue, step.Duration);
+            return _rectTrm.DOSizeDelta(step.GetTransformValue(), step.Duration);
         }
 
         private Tween CreateFillAmountTween(TweenStep step)

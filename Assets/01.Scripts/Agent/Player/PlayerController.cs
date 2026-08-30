@@ -3,6 +3,7 @@ using _01.Scripts.Agent.Player.Fsm;
 using _01.Scripts.GameSystem;
 using _TevLib.FsmSystem.Runtime;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace _01.Scripts.Agent.Player
 {

@@ -1,7 +1,9 @@
+using System;
 using _01.Scripts.Agent;
 using _TevLib.ModuleSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace _01.Scripts.CombatSystem
 {
@@ -16,6 +18,13 @@ namespace _01.Scripts.CombatSystem
         {
             base.Init(owner);
             _healthModule = owner.GetModule<HealthModule>();
+        }
+
+        public void Update() //test
+        {
+            if (Keyboard.current.tKey.wasPressedThisFrame)
+                _healthModule.TakeDamage(-3f);
+            
         }
 
         public void ApplyDamage(DamageData damageData, Vector2 hitPoint, Vector2 hitDirection, Vector2 hitNormal)
