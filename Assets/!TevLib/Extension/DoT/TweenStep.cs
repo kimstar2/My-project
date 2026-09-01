@@ -31,10 +31,12 @@ namespace _TevLib.Extension.DoT
             }
             return resultVector;
         }
+
+        public void SetTransformValue(Vector3 value) => MinTransformValue = value;
+        
         [field:SerializeField] public float FadeValue { get; private set; }
         [field:SerializeField] public Color ColorValue { get; private set; }
         
         [field: SerializeField] public UnityEvent Callback { get; private set; }
-
     }
 }

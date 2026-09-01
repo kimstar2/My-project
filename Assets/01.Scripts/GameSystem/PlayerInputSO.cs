@@ -1,6 +1,10 @@
 using System;
+using _01.Scripts.GameSystem.Event;
+using _TevLib.CoreLib.EventSystem;
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Action = System.Action;
 
 namespace _01.Scripts.GameSystem
 {
@@ -11,11 +15,14 @@ namespace _01.Scripts.GameSystem
     [CreateAssetMenu(fileName = "Player Input", menuName = "System/Player Input")]
     public class PlayerInputSO : ScriptableObject , Controls.IPlayerActions
     {
+        [field:SerializeField] public EventChannelSO EventChannel {get; private set;}
         private Controls _controls;
 
         public Camera MainCamera { get; private set; }
         public Vector2 InputDirection { get; private set; }
+        
         public Vector2 PointerValue { get; private set; }
+        private PointerPosEvent _pointerPosEvent;
         
         public event Action<SkillSlot , bool> OnSkillPerformed;
         public event Action<bool> OnAttackKeyPress;
@@ -33,6 +40,7 @@ namespace _01.Scripts.GameSystem
             }
             _controls.Player.Enable();
             
+            _pointerPosEvent ??= new PointerPosEvent();
             MainCamera = Camera.main;
         }
         
@@ -67,7 +75,14 @@ namespace _01.Scripts.GameSystem
                 OnJumpKeyPress?.Invoke();
         }
 
-        public void OnPointer(InputAction.CallbackContext context) => PointerValue = context.ReadValue<Vector2>();
+        public void OnPointer(InputAction.CallbackContext context)
+        {
+            PointerValue = context.ReadValue<Vector2>();
+            _pointerPosEvent.SetPointerPos(PointerValue);
+            _pointerPosEvent.SetPointerToWorldPos(GetPointerToWorldPos());
+            EventChannel.Raise(_pointerPosEvent);
+        }
+
 
         public Vector3 GetPointerToWorldPos()
         {

@@ -20,7 +20,7 @@ namespace _TevLib.Extension.DoT
         
         [SerializeField] private bool targetLink;
         [SerializeField] private LinkBehaviour linkType;
-        [SerializeField] private AnimHashSO id;
+        [SerializeField] private Transform id;
         public UnityEvent onSeqComplete;
         
         public bool HasTween =>
@@ -77,7 +77,7 @@ namespace _TevLib.Extension.DoT
             }
             
             if (id != null)
-                _activeSequence.SetId(id.HashValue);
+                _activeSequence.SetId(id.GetHashCode());
             
             _activeSequence
                 .SetLink(gameObject
@@ -107,7 +107,7 @@ namespace _TevLib.Extension.DoT
             }
 
             if (id != null)
-                _activeSequence.SetId(id.HashValue);
+                _activeSequence.SetId(id.GetHashCode());
             
             _activeSequence
                 .SetLink(gameObject
@@ -307,10 +307,31 @@ namespace _TevLib.Extension.DoT
         private void KillTween()
         {
             if (id != null)
-                DOTween.Kill(id.HashValue);
+                DOTween.Kill(id.GetHashCode());
             _activeSequence.Kill();
             _activeSequence = null;
         }
+        
+        #endregion
+
+        #region Setter
+
+        public void SetTransformValue(Vector3 value) => SetTransformValue(value, 0);
+        public void SetTransformValue(Vector2 value) => SetTransformValue(value, 0);
+
+        public void SetTransformValue(Vector3 value, int i)
+        {
+            TweenStep tempStep = sequenceStep[i];
+            tempStep.SetTransformValue(value);
+            sequenceStep[i] = tempStep;
+        }  
+        public void SetTransformValue(Vector2 value, int i)
+        {
+            TweenStep tempStep = sequenceStep[i];
+            tempStep.SetTransformValue(value);
+            sequenceStep[i] = tempStep;
+        }
+
         #endregion
     }
 }

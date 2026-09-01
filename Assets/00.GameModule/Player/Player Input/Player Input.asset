@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f19e6578bec68745b750c7b95f9dff9, type: 3}
   m_Name: Player Input
   m_EditorClassIdentifier: Assembly-CSharp::System.PlayerInputSO
-  InputDirection: {fileID: 11400000, guid: 36678e01a94f1494987c680e8ec434d5, type: 2}
-  OnAttackKeyPress: {fileID: 11400000, guid: 3387e57f5a288244dbfbe7e0a641d889, type: 2}
-  OnInteractKeyPress: {fileID: 0}
-  OnJumpKeyPress: {fileID: 0}
+  <EventChannel>k__BackingField: {fileID: 11400000, guid: 3387e57f5a288244dbfbe7e0a641d889, type: 2}

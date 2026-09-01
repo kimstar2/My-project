@@ -1,0 +1,15 @@
+using System;
+using UnityEngine;
+
+namespace _01.Scripts.UI
+{
+    public abstract class MonoRect : MonoBehaviour
+    {
+        protected RectTransform RectTrm { get; private set; }
+
+        protected virtual void Awake()
+        {
+            RectTrm = GetComponent<RectTransform>();
+        }
+    }
+}

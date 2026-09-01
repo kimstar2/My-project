@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _01.Scripts.Util.TextBinder
+namespace _01.Scripts.UI.TextBinder
 {
     public class IntTextBinder : MonoTMP
     {

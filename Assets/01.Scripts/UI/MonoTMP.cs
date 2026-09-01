@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace _01.Scripts.Util
+namespace _01.Scripts.UI
 {
     public class MonoTMP : MonoBehaviour
     {

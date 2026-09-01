@@ -18,8 +18,8 @@ MonoBehaviour:
   <Duration>k__BackingField: 1
   <IsRandomizeValue>k__BackingField: 1
   <UsingFastBeyond>k__BackingField: 0
-  <MinTransformValue>k__BackingField: {x: 190, y: 375, z: 0}
-  <MaxTransformValue>k__BackingField: {x: -65, y: 275, z: 0}
+  <MinTransformValue>k__BackingField: {x: 275, y: 55, z: 0}
+  <MaxTransformValue>k__BackingField: {x: 125, y: -55, z: 0}
   <FadeValue>k__BackingField: 0
   <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <Callback>k__BackingField:

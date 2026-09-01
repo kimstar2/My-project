@@ -15,7 +15,7 @@ namespace _TevLib.ServiceLocatorSystem.TimeService
 
         private float _baseFixedDeltaTime;
 
-        private void Awake()
+        private async void Awake()
         {
             ServiceLocator.RegisterService<ITimeService>(this);
             ServiceLocator.RegisterService<ITickService>(this);
@@ -50,14 +50,14 @@ namespace _TevLib.ServiceLocatorSystem.TimeService
                 : _baseFixedDeltaTime;
         }
 
-        public async UniTask Timer(float time, CancellationToken ct) 
-            => await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: ct);
+        public async UniTask Timer(float time, CancellationToken ct , bool independentTime = false) 
+            => await UniTask.Delay(TimeSpan.FromSeconds(time),independentTime, cancellationToken: ct);
 
         public async UniTask ActionTimer(float time, CancellationToken ct,
-            Action startAction = null, Action endAction = null)
+            Action startAction = null, Action endAction = null , bool independentTime = false)
         {
             startAction?.Invoke();
-            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: ct);
+            await UniTask.Delay(TimeSpan.FromSeconds(time),independentTime, cancellationToken: ct);
             endAction?.Invoke();
         }
     }

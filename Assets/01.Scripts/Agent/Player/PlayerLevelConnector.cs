@@ -1,5 +1,7 @@
 using System;
 using _TevLib.ModuleSystem;
+using _TevLib.ServiceLocatorSystem;
+using _TevLib.ServiceLocatorSystem.TimeService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -72,6 +74,7 @@ namespace _01.Scripts.Agent.Player
         {
             _level++;
             onLevelUp?.Invoke(_level);
+            ServiceLocator.GetService<ITimeService>().SetTimeScale(0f);
         }
 
         private float CalculateRequiredExp()

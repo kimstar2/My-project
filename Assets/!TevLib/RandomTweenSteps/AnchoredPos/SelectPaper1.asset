@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_TevLib.Extension.DoT.TweenStepSO
   <ActionType>k__BackingField: 1
   <InsertType>k__BackingField: 3
-  <EaseType>k__BackingField: 12
-  <Duration>k__BackingField: 1
+  <EaseType>k__BackingField: 3
+  <Duration>k__BackingField: 0.6
   <IsRandomizeValue>k__BackingField: 1
-  <MinTransformValue>k__BackingField: {x: 190, y: 750, z: 0}
-  <MaxTransformValue>k__BackingField: {x: -65, y: 650, z: 0}
+  <UsingFastBeyond>k__BackingField: 0
+  <MinTransformValue>k__BackingField: {x: 750, y: 55, z: 0}
+  <MaxTransformValue>k__BackingField: {x: 600, y: -55, z: 0}
   <FadeValue>k__BackingField: 0
   <ColorValue>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <Callback>k__BackingField:

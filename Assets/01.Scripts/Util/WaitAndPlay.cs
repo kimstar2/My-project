@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections.Generic;
 using System.Threading;
 using _TevLib.ServiceLocatorSystem;
@@ -18,20 +18,30 @@ namespace _01.Scripts.Util
     
     public class WaitAndPlay : MonoBehaviour
     {
+        [field:SerializeField] public bool IsPlaying {get; private set;}
+        [SerializeField] private bool independentTime;
         [SerializeField] private List<WaitAndPlayStep> steps;
         private CancellationTokenSource _cts;
 
-        public void Play() => PlaySteps().Forget();
-        
+        [ContextMenu("Play")]
+        public void Play()
+        {
+            if (!IsPlaying)
+                PlaySteps().Forget();
+        }
+
+
         public async UniTask PlaySteps()
         {
+            IsPlaying = true;
             foreach (var step in steps)
             {
                 KillTasks();
                 _cts = new CancellationTokenSource();
                 step.action.Invoke();
-                await ServiceLocator.GetService<ITimeService>().Timer(step.nextTime,_cts.Token);
+                await ServiceLocator.GetService<ITimeService>().Timer(step.nextTime,_cts.Token,independentTime);
             }
+            IsPlaying = false;
         }
         
         private void KillTasks()
