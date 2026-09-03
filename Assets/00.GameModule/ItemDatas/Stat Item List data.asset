@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223dc9266ed94fc8a652d51bda67eb9f, type: 3}
+  m_Name: Stat Item List data
+  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.ItemSystem.StatItemListSO
+  <GachaLists>k__BackingField:
+  - <Grade>k__BackingField: 0
+    <OutLineColor>k__BackingField: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0.15294118}
+    <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 60bd0f7f5bd9eae48b094d7b95acaacf, type: 2}
+    - {fileID: 11400000, guid: 142ade1a7ba6a5f489a2bd515a2e5a26, type: 2}
+    <GachaPer>k__BackingField: 55
+  - <Grade>k__BackingField: 1
+    <OutLineColor>k__BackingField: {r: 0, g: 0.08679241, b: 0.011127226, a: 1}
+    <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 263307393dbab844aa3dc038364126fb, type: 2}
+    <GachaPer>k__BackingField: 25
+  - <Grade>k__BackingField: 2
+    <OutLineColor>k__BackingField: {r: 0, g: 0.19369316, b: 0.3283019, a: 1}
+    <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 595f80212a4562a45ade8b797259dbb2, type: 2}
+    - {fileID: 11400000, guid: 820324c1b5a45e34b979f0a550a4ab97, type: 2}
+    <GachaPer>k__BackingField: 15
+  - <Grade>k__BackingField: 3
+    <OutLineColor>k__BackingField: {r: 0.41960785, g: 0, b: 0.0627451, a: 1}
+    <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 595f80212a4562a45ade8b797259dbb2, type: 2}
+    <GachaPer>k__BackingField: 5

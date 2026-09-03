@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _01.Scripts.GameSystem;
+using _01.Scripts.ItemSystem;
 using _01.Scripts.SkillSystem;
 using _TevLib.ModuleSystem;
 using UnityEngine;
@@ -131,8 +132,8 @@ namespace _01.Scripts.Agent.Player
         
         public override float GetBaseDamage(SkillDataSO skillData)
         {
-            return skillData.NotifyBaseSkillDamage.Value * skillData.NotifyDamageMultiplier.Value; //
+            float defaultDamage = skillData.NotifyBaseSkillDamage.Value * skillData.NotifyDamageMultiplier.Value;
+            return defaultDamage;
         }
-        
     }
 }

@@ -7,11 +7,10 @@ namespace _01.Scripts.Agent
 {
     public class AgentMovement : MonoModule , IMoveable
     {
-        public event Action<Vector2> OnMoveDirChange;
-        [SerializeField] private bool useAcceleration;
-        [SerializeField] private float moveSpeed = 5f;
-        [SerializeField] private float maxMoveSpeed = 15f;
-        [SerializeField] private float acceleration;
+        [field:SerializeField] private bool useAcceleration;
+        [field:SerializeField] public float MoveSpeed { get; private set; } = 5f;
+        [field:SerializeField] private float maxMoveSpeed = 15f;
+        [field:SerializeField] private float acceleration;
         
         public Rigidbody2D RbCompo {get; private set;}
         public Vector2 MoveDirection {get; private set;}
@@ -24,7 +23,7 @@ namespace _01.Scripts.Agent
 
         private void FixedUpdate()
         {
-            Vector2 targetVelocity = MoveDirection * moveSpeed;
+            Vector2 targetVelocity = MoveDirection * MoveSpeed;
             if (useAcceleration)
             {
                 RbCompo.linearVelocity = Vector2.MoveTowards(
@@ -35,14 +34,12 @@ namespace _01.Scripts.Agent
             else
                 RbCompo.linearVelocity = targetVelocity; 
         }
-
         
-        public void SetMovementSpeed(float speed) => moveSpeed = Mathf.Clamp(speed, 0, maxMoveSpeed);
+        public void SetSpeed(float speed) => MoveSpeed = Mathf.Clamp(speed, 0, maxMoveSpeed);
 
         public void SetDirection(Vector2 direction)
         {
             MoveDirection = direction.normalized;
-            OnMoveDirChange?.Invoke(MoveDirection);
         }
 
         public void StopImmediately()

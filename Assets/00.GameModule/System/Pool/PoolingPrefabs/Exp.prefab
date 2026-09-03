@@ -4802,7 +4802,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 936991025
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 25
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -4944,6 +4944,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  evtChannel: {fileID: 11400000, guid: 3387e57f5a288244dbfbe7e0a641d889, type: 2}
   onExp:
     m_PersistentCalls:
       m_Calls:

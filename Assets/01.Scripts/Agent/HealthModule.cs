@@ -28,7 +28,14 @@ namespace _01.Scripts.Agent
             }
         }
         public bool IsDead { get; private set; }
-        
+
+        public void SetMaxHealth(float value)
+        {
+            MaxHealth = value;
+            Health = Mathf.Clamp(value, 0, MaxHealth);
+        }
+
+
         public override void Init(ModuleOwner owner)
         {
             base.Init(owner);

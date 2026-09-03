@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: d6b5f8e601a140e429bdb1310a97f8d5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3930248745974760127
+    second: EraserCrumbs_0
+  - first:
+      213: 4531718812461246072
+    second: EraserCrumbs_1
+  - first:
+      213: 727676520989501577
+    second: EraserCrumbs_2
+  - first:
+      213: -2504786483393028292
+    second: EraserCrumbs_3
+  - first:
+      213: 13247803549285916
+    second: EraserCrumbs_4
+  - first:
+      213: 330191243916688768
+    second: EraserCrumbs_5
+  - first:
+      213: -6285659248819278926
+    second: EraserCrumbs_6
+  - first:
+      213: -2172672962571814798
+    second: EraserCrumbs_7
+  - first:
+      213: 1722065130683026472
+    second: EraserCrumbs_8
+  - first:
+      213: -8708068939231036126
+    second: EraserCrumbs_9
+  - first:
+      213: -3148117343315526969
+    second: EraserCrumbs_10
+  - first:
+      213: 8534957256144468097
+    second: EraserCrumbs_11
+  - first:
+      213: 5107166007848970092
+    second: EraserCrumbs_12
+  - first:
+      213: -5370318555675105797
+    second: EraserCrumbs_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EraserCrumbs_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb200ce396c0b8630800000000000000
+      internalID: 3930248745974760127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 151b49622d7eade4c9442f835f4cebdb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EraserCrumbs_0: 3930248745974760127
+      EraserCrumbs_1: 4531718812461246072
+      EraserCrumbs_10: -3148117343315526969
+      EraserCrumbs_11: 8534957256144468097
+      EraserCrumbs_12: 5107166007848970092
+      EraserCrumbs_13: -5370318555675105797
+      EraserCrumbs_14: -1134641986
+      EraserCrumbs_2: 727676520989501577
+      EraserCrumbs_3: -2504786483393028292
+      EraserCrumbs_4: 13247803549285916
+      EraserCrumbs_5: 330191243916688768
+      EraserCrumbs_6: -6285659248819278926
+      EraserCrumbs_7: -2172672962571814798
+      EraserCrumbs_8: 1722065130683026472
+      EraserCrumbs_9: -8708068939231036126
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

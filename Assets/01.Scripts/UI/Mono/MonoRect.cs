@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace _01.Scripts.UI
+namespace _01.Scripts.UI.Mono
 {
     public abstract class MonoRect : MonoBehaviour
     {

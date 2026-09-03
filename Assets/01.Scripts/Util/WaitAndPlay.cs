@@ -31,7 +31,7 @@ namespace _01.Scripts.Util
         }
 
 
-        public async UniTask PlaySteps()
+        private async UniTask PlaySteps()
         {
             IsPlaying = true;
             foreach (var step in steps)
@@ -39,7 +39,14 @@ namespace _01.Scripts.Util
                 KillTasks();
                 _cts = new CancellationTokenSource();
                 step.action.Invoke();
-                await ServiceLocator.GetService<ITimeService>().Timer(step.nextTime,_cts.Token,independentTime);
+                try
+                {
+                    await ServiceLocator.GetService<ITimeService>().Timer(step.nextTime,_cts.Token,independentTime);
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
             }
             IsPlaying = false;
         }

@@ -7,6 +7,7 @@ namespace _01.Scripts.SkillSystem
     {
         public event Action<ISkill> OnSkillEnd;
         [field:SerializeField] public SkillDataSO SkillData { get; private set; }
+        public SkillDataSO RuntimeSkillData {get; protected set;}
 
         protected float LastUsedTime = float.NegativeInfinity;
         protected ISkillModule SkillModule;
@@ -22,6 +23,7 @@ namespace _01.Scripts.SkillSystem
 
         public bool IsUsing { get; private set; }
         public virtual bool CanInterrupt => false;
+        
         public virtual void InitializeSkill(ISkillModule skillModule)
         => SkillModule = skillModule;
 

@@ -21,7 +21,7 @@ MonoBehaviour:
   - rid: 69567652788174868
   - rid: 69567652788174878
   - rid: 69567652788174965
-  m_VersionTimestamp: 639235641089724820
+  m_VersionTimestamp: 639240795839324200
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 7782429983612678207}
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Value0: 2630818509236815811
           m_Value1: 8704903601279537700
         Name: StateChannel
-        IsExposed: 0
+        IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
     - rid: 69567652788174878

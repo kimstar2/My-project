@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 using _01.Scripts.GameSystem.Event;
 using _01.Scripts.GameSystem.GameServices;
 using _TevLib.CoreLib.EventSystem;
@@ -13,6 +15,7 @@ namespace _01.Scripts.ItemSystem
     {
         private EventChannelSO _evtChannel;
         private IPoolingService _poolingService;
+        private CancellationTokenSource _cts;
         public UnityEvent onExp;
 
         private void Start()
@@ -32,10 +35,14 @@ namespace _01.Scripts.ItemSystem
 
             AlreadyCollected = true;
             int amount = itemData.GetRandomAmount();
-            CollectTask(collector, amount, magneticPower).Forget();
+
+            KillCollectTask();
+            _cts = new CancellationTokenSource();
+            CancellationToken token = _cts.Token;
+            CollectTask(token ,collector, amount, magneticPower).Forget();
         }
 
-        private async UniTask CollectTask(Transform collector, int amount, float magneticPower)
+        private async UniTask CollectTask(CancellationToken token ,Transform collector, int amount, float magneticPower)
         {
             if (collector == null || magneticPower <= 0f) return;
             Vector3 startPosition = transform.position;
@@ -44,23 +51,31 @@ namespace _01.Scripts.ItemSystem
             float duration = distance / magneticPower;
             float elapsed = 0f;
 
-            while (elapsed < duration)
+            try
             {
-                if (collector == null) return;
-                elapsed += Time.deltaTime;
-                float percent = Mathf.Clamp01(elapsed / duration);
-                
-                float easedPercent = percent * percent;
+                while (elapsed < duration)
+                {
+                    if (collector == null) return;
+                    elapsed += Time.deltaTime;
+                    float percent = Mathf.Clamp01(elapsed / duration);
 
-                transform.position = Vector3.Lerp(
-                    startPosition,
-                    collector.position,
-                    dropCurve.Evaluate(easedPercent)
-                );
+                    float easedPercent = percent * percent;
 
-                await UniTask.Yield();
+                    transform.position = Vector3.Lerp(
+                        startPosition,
+                        collector.position,
+                        dropCurve.Evaluate(easedPercent)
+                    );
+
+                    await UniTask.Yield(cancellationToken: token);
+                }
             }
-
+            catch (Exception)
+            {
+                // ignored
+                return;
+            }
+            
             transform.position = collector.position;
 
             _evtChannel.Raise(
@@ -68,7 +83,16 @@ namespace _01.Scripts.ItemSystem
             );
 
             _poolingService.Push(this);
-            
+        }
+        
+        private void KillCollectTask()
+        {
+            if (_cts != null)
+            {
+                _cts.Cancel();
+                _cts.Dispose();
+                _cts = null;
+            }
         }
     }
 }

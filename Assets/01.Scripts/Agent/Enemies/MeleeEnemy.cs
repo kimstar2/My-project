@@ -8,13 +8,11 @@ namespace _01.Scripts.Agent.Enemies
     public class MeleeEnemy : AbstractEnemy
     {
         private IRotatable _rotatable;
-        private HealthModule _healthModule;
         
         protected override void InitializeModules()
         {
             base.InitializeModules();
             _rotatable = GetModule<IRotatable>();
-            _healthModule = GetModule<HealthModule>();
         }
 
         private void LateUpdate()

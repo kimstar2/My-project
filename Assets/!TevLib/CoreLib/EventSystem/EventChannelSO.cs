@@ -60,5 +60,5 @@ namespace _TevLib.CoreLib.EventSystem
             _events.Clear();
             _lookup.Clear();
         }
-}
+    }
 }

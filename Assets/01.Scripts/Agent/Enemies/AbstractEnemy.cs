@@ -52,7 +52,13 @@ namespace _01.Scripts.Agent.Enemies
             if (useHitState)
                 _stateChannel.SendEventMessage(EnemyState.HIT);
         }
-        
+
+        protected override void HandleDead()
+        {
+            base.HandleDead();
+            _stateChannel.SendEventMessage(EnemyState.DEAD);
+        }
+
         private void OnDrawGizmos()
         {
             if (!isDebugMode || EnemyData == null) return;

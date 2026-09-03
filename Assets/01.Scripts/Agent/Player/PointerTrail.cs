@@ -18,13 +18,14 @@ namespace _01.Scripts.Agent.Player
             _trailRenderer = GetComponent<TrailRenderer>();
         }
 
-        private void Start() => eventChannel.AddListener<PointerPosEvent>(GetPointerPosEvt);
-        
-        
+        private void OnEnable() => eventChannel.AddListener<PointerPosEvent>(GetPointerPosEvt);
+
+
         public void OnTrail() => _trailRenderer.enabled = true;
         public void OffTrail() => _trailRenderer.enabled = false;
-        
-        private void OnDestroy() => eventChannel.RemoveListener<PointerPosEvent>(GetPointerPosEvt);
+
+        private void OnDisable() => eventChannel.RemoveListener<PointerPosEvent>(GetPointerPosEvt);
+
         private void GetPointerPosEvt(PointerPosEvent pointerPosEvt)
         {
             transform.localPosition = pointerPosEvt.WorldPointerPos;

@@ -10,25 +10,22 @@ using UnityEngine.Events;
 
 namespace _01.Scripts.ItemSystem
 {
-    public class ItemDataReceiver : MonoBehaviour
+    public class ItemClickReceiver : MonoBehaviour
     {
+        [SerializeField] private EventChannelSO eventChannel;
         [SerializeField] private Transform parentTrm;
         [SerializeField] private float disableTime;
-        private EventChannelSO _eventChannel;
         public UnityEvent<Vector2> onItemAncPos;
-        private GetItemDataEvent _currentEvt;
+        private ItemClickReceiverEvent _currentEvt;
         private Transform _returnTransform;
         private ITimeService _timeService;
         private CancellationTokenSource _returnCts;
 
-        private void Start()
-        {
-            _eventChannel = ServiceLocator.GetService<IGetEvtChannel>().Evt;
-            _eventChannel.AddListener<GetItemDataEvent>(HandleGetItemData);
-            _timeService = ServiceLocator.GetService<ITimeService>();
-        }
+        private void Start() => _timeService = ServiceLocator.GetService<ITimeService>();
 
-        private void HandleGetItemData(GetItemDataEvent evt)
+        private void OnEnable() => eventChannel.AddListener<ItemClickReceiverEvent>(HandleGetItemData);
+
+        private void HandleGetItemData(ItemClickReceiverEvent evt)
         {
             _currentEvt = evt;
             onItemAncPos.Invoke(evt.RectTrm.anchoredPosition);

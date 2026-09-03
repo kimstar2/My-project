@@ -1,3 +1,4 @@
+using _01.Scripts.UI.Mono;
 using UnityEngine;
 
 namespace _01.Scripts.UI.TextBinder

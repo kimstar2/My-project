@@ -14,7 +14,7 @@ namespace _01.Scripts.UI
             _canvasBlockRayService = ServiceLocator.GetService<ICanvasBlockRayService>();
         }
 
-        public void SetRay(bool value)
+        public void SetBlock(bool value)
         {
             _canvasBlockRayService.SetBlock(value);
         }
