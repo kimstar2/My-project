@@ -2,6 +2,8 @@ using System;
 using _01.Scripts.Agent.Player.Fsm;
 using _01.Scripts.GameSystem;
 using _TevLib.FsmSystem.Runtime;
+using _TevLib.ServiceLocatorSystem;
+using _TevLib.ServiceLocatorSystem.PoolService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +13,7 @@ namespace _01.Scripts.Agent.Player
     {
         public GameObject GameObject => gameObject;
 
+        [SerializeField] private PoolItemSO testEnemyData;
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private StateListSO playerFsmList;
 
@@ -26,10 +29,8 @@ namespace _01.Scripts.Agent.Player
             _weaponHodler = GetModule<RotateObject>();
             PlayerInput.SetEnable();
         }
-
-        protected override void HandleHit()
-        {
-        }
+        
+        protected override void HandleHit() { }
 
         private void Start()
         {
@@ -43,6 +44,10 @@ namespace _01.Scripts.Agent.Player
 
         private void Update()
         {
+            if (Keyboard.current.tKey.wasPressedThisFrame) // 쌩 테스트용임
+            {
+                ServiceLocator.GetService<IPoolingService>().Pop(testEnemyData);
+            }
             ObjectDirectionToPointer();
             _stateMachine.UpdateMachine();
         }

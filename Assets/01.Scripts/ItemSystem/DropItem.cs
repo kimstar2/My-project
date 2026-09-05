@@ -21,6 +21,15 @@ namespace _01.Scripts.ItemSystem
             foreach (DropInfo dropInfo in dropTable.dropTable)
                 Drop(dropInfo);
         }
+        
+        public void DropIt(ItemDropRangeSO dropRange)
+        {
+            for (int i = 0; i < dropRange.GetRandomRange(); i++)
+            {
+                foreach (DropInfo dropInfo in dropTable.dropTable)
+                    Drop(dropInfo);
+            }
+        }
 
         private void Drop(DropInfo dropInfo)
         {

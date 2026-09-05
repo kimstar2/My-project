@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 namespace _01.Scripts.Agent.Player
 {
-    public class PlayerLevelConnector : MonoModule, IAfterInitModule
+    public class PlayerLevelController : MonoModule, IAfterInitModule
     {
         [SerializeField] private float[] testBaseExp;
         private HealthModule _healthModule;
@@ -72,7 +72,10 @@ namespace _01.Scripts.Agent.Player
 
         private void LevelUp()
         {
-            _level++;
+            if (_level < testBaseExp.Length-1)
+            {
+                _level++;
+            }
             onLevelUp?.Invoke(_level);
             ServiceLocator.GetService<ITimeService>().SetTimeScale(0f);
         }

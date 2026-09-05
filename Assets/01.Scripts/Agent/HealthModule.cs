@@ -1,3 +1,4 @@
+using System;
 using _TevLib.Editor.PropertyAttribute;
 using _TevLib.ModuleSystem;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace _01.Scripts.Agent
         public UnityEvent<float,float> onHealthChanged;
         public UnityEvent<float> onTakeDamage;
         public UnityEvent onDead;
+        public event Action OnHit;
         
         private float _health;
         public float Health
@@ -39,14 +41,23 @@ namespace _01.Scripts.Agent
         public override void Init(ModuleOwner owner)
         {
             base.Init(owner);
+            HealthInit();
+        }
+
+        public void HealthInit()
+        {
             Health = MaxHealth;
+            IsDead = false;
         }
 
         public void TakeDamage(float damage)
         {
             if (IsDead) return;
             Health -= damage;
-            onTakeDamage.Invoke(damage);
+            
+            onTakeDamage?.Invoke(damage);
+            OnHit?.Invoke();
+            
             if (Health <= 0)
             {
                 onDead?.Invoke();

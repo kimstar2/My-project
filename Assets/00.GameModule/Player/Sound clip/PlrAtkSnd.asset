@@ -18,6 +18,6 @@ MonoBehaviour:
   randomizePitch: 1
   randomPitchModifier: 0.1
   volume: 1
-  pitch: 0.8
+  pitch: 2.69
   startTime: 0
   endTime: 0.1

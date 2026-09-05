@@ -6,6 +6,6 @@ namespace _01.Scripts.Agent.Enemies.BT
         public const string Enemy = "Enemy";
         public const string EnemyState = "EnemyState";
         public const string OriginPosition = "OriginPosition";
-        public const string StateChannel = "StateChennel";
+        public const string StateChannel = "StateChannel";
     }
 }

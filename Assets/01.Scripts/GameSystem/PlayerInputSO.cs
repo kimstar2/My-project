@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using _01.Scripts.GameSystem.Event;
 using _TevLib.CoreLib.EventSystem;
 using Unity.Behavior;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using Action = System.Action;
 
 namespace _01.Scripts.GameSystem
@@ -12,38 +15,40 @@ namespace _01.Scripts.GameSystem
     {
         //아직업슴;;;
     }
+
     [CreateAssetMenu(fileName = "Player Input", menuName = "System/Player Input")]
-    public class PlayerInputSO : ScriptableObject , Controls.IPlayerActions
+    public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
-        [field:SerializeField] public EventChannelSO EventChannel {get; private set;}
+        [field: SerializeField] public EventChannelSO EventChannel { get; private set; }
+        [SerializeField] private LayerMask uiLayerMask;
         private Controls _controls;
+        private PointerPosEvent _pointerPosEvent;
 
         public Camera MainCamera { get; private set; }
         public Vector2 InputDirection { get; private set; }
-        
         public Vector2 PointerValue { get; private set; }
-        private PointerPosEvent _pointerPosEvent;
-        
-        public event Action<SkillSlot , bool> OnSkillPerformed;
+
+        public event Action<SkillSlot, bool> OnSkillPerformed;
         public event Action<bool> OnAttackKeyPress;
         public event Action OnInteractKeyPress;
         public event Action OnJumpKeyPress;
-        
+
         public void SetEnable()
         {
             ClearSubscriptions();
-            
+
             if (_controls == null)
             {
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
             }
+
             _controls.Player.Enable();
-            
+
             _pointerPosEvent ??= new PointerPosEvent();
             MainCamera = Camera.main;
         }
-        
+
         private void ClearSubscriptions()
         {
             OnAttackKeyPress = null;
@@ -52,13 +57,17 @@ namespace _01.Scripts.GameSystem
             OnJumpKeyPress = null;
         }
 
-        
+
         public void SetDisable() => _controls?.Player.Disable();
-    
-        public void OnMove(InputAction.CallbackContext context) => InputDirection =context.ReadValue<Vector2>();
+
+        public void OnMove(InputAction.CallbackContext context) => InputDirection = context.ReadValue<Vector2>();
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (context.control.device is Pointer pointer &&
+                IsPointerOverUI(pointer.position.ReadValue()))
+                return;
+            
             if (context.performed)
                 OnAttackKeyPress?.Invoke(true);
         }
@@ -89,6 +98,22 @@ namespace _01.Scripts.GameSystem
             Vector3 worldPointerPos = MainCamera!.ScreenToWorldPoint(PointerValue);
             worldPointerPos.z = 0;
             return worldPointerPos;
+        }
+        
+        private bool IsPointerOverUI(Vector2 screenPosition)
+        {
+            if (EventSystem.current == null)
+                return false;
+
+            PointerEventData eventData = new PointerEventData(EventSystem.current)
+            {
+                position = screenPosition
+            };
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+
+            return results.Exists(result => result.module is GraphicRaycaster);
         }
     }
 }

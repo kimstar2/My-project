@@ -24,6 +24,7 @@ namespace _01.Scripts.ItemSystem
         [SerializeField] private MonoTMPUGUI titleText;
         [SerializeField] private MonoTMPUGUI descText;
         [SerializeField] private MonoOutLine outLine;
+        [SerializeField] private MonoImage outLineImage;
         private EventChannelSO _eventChannel;
         private StatItemDataSO _crtStatItemData;
         public bool CanClick { get; private set; } = true;
@@ -63,6 +64,7 @@ namespace _01.Scripts.ItemSystem
         {
             paperImage.SetEnable(enable);
             outLine.SetEnable(enable);
+            outLineImage.SetEnable(enable);
             layoutGroup.SetActive(enable);
         }
 

@@ -6,5 +6,6 @@ namespace _01.Scripts.ItemSystem
         Uncommon,
         Rare,
         Epic,
+        Legendary,
     }
 }

@@ -28,6 +28,7 @@ namespace _01.Scripts.Agent.Enemies
 
         public void SetValue(float value)
         {
+            if (_mpb == null) return;
             DOTween.Kill(_id);
             
             float crtValue = _mpb.GetFloat(voronoiValueHash.HashValue);

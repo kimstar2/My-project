@@ -10,5 +10,10 @@ namespace _01.Scripts.UI.TextBinder
         {
             TMP.SetText(string.Format(content, $"{value:F1}"));
         }
+
+        public void SetColor(Color color)
+        {
+            TMP.color = color;
+        }
     }
 }

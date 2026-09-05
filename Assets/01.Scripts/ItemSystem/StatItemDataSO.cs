@@ -16,9 +16,9 @@ namespace _01.Scripts.ItemSystem
             foreach (StatItemData stat in ItemStats)
             {
                 string type = GetType(stat);
-                string applyValue =  stat.ApplyValue == 0 ? string.Empty :$"{type} : {(stat.ApplyValue > 0 ? "+" : "" )}{stat.ApplyValue}\n";
-                string multipleValue =  stat.Multiple == 0 ? string.Empty :$"{type} : {Mathf.Abs(stat.Multiple-1)*100:F1}% {(stat.Multiple-1 < 0 ? "감소" : "증가" )}\n";
-                string finalApplyValue =  stat.FinalApplyValue == 0 ? string.Empty :$"{type} : 최종 적용 값 {(stat.FinalApplyValue > 0 ? "+" : "" )}{stat.FinalApplyValue}\n";
+                string applyValue =  stat.ApplyValue == 0 ? string.Empty :$"{type} {(stat.ApplyValue > 0 ? "+" : "" )}{stat.ApplyValue}\n";
+                string multipleValue =  stat.Multiple == 0 ? string.Empty :$"{type} {Mathf.Abs(stat.Multiple-1)*100:F1}% {(stat.Multiple-1 < 0 ? "감소" : "증가" )}\n";
+                string finalApplyValue = stat.FinalApplyValue == 0 ? string.Empty : $"최종 {type} {(stat.FinalApplyValue > 0 ? "+" : "" )}{stat.FinalApplyValue}\n";
                 result += applyValue + multipleValue + finalApplyValue;
             }
             return result;

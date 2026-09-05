@@ -8,7 +8,6 @@ namespace _01.Scripts.Agent.Bar
         {
             float value = numerator / demoninator;
             transform.DOScaleX(value, tweenStep.Duration).SetEase(tweenStep.EaseType);
-
         }
     }
 }

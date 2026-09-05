@@ -45,10 +45,9 @@ namespace _TevLib.Extension.ParticleSystem
 
         public void ReturnGoToPool()
         {
-            ServiceLocator.GetService<IPoolingService>().Push(this);
+            ServiceLocator.GetService<IPoolingService>()?.Push(this);
         }
-
-
+        
         # endregion
         # region UniTask
         private void KillToken()

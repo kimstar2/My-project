@@ -16,7 +16,6 @@ MonoBehaviour:
   - <Grade>k__BackingField: 0
     <OutLineColor>k__BackingField: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0.15294118}
     <ItemLists>k__BackingField:
-    - {fileID: 11400000, guid: 60bd0f7f5bd9eae48b094d7b95acaacf, type: 2}
     - {fileID: 11400000, guid: 142ade1a7ba6a5f489a2bd515a2e5a26, type: 2}
     <GachaPer>k__BackingField: 55
   - <Grade>k__BackingField: 1
@@ -27,11 +26,16 @@ MonoBehaviour:
   - <Grade>k__BackingField: 2
     <OutLineColor>k__BackingField: {r: 0, g: 0.19369316, b: 0.3283019, a: 1}
     <ItemLists>k__BackingField:
-    - {fileID: 11400000, guid: 595f80212a4562a45ade8b797259dbb2, type: 2}
-    - {fileID: 11400000, guid: 820324c1b5a45e34b979f0a550a4ab97, type: 2}
+    - {fileID: 11400000, guid: 60bd0f7f5bd9eae48b094d7b95acaacf, type: 2}
     <GachaPer>k__BackingField: 15
   - <Grade>k__BackingField: 3
     <OutLineColor>k__BackingField: {r: 0.41960785, g: 0, b: 0.0627451, a: 1}
     <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 820324c1b5a45e34b979f0a550a4ab97, type: 2}
     - {fileID: 11400000, guid: 595f80212a4562a45ade8b797259dbb2, type: 2}
-    <GachaPer>k__BackingField: 5
+    <GachaPer>k__BackingField: 3
+  - <Grade>k__BackingField: 4
+    <OutLineColor>k__BackingField: {r: 0.41960785, g: 0.40213364, b: 0, a: 1}
+    <ItemLists>k__BackingField:
+    - {fileID: 11400000, guid: 6479435fb7f746b458d4a423e9303b02, type: 2}
+    <GachaPer>k__BackingField: 2
