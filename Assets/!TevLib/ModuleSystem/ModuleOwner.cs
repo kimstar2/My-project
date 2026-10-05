@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using ZLinq;
 
 namespace _TevLib.ModuleSystem
 {
@@ -12,7 +12,7 @@ namespace _TevLib.ModuleSystem
 
         public virtual void Awake()
         {
-            _moduleDict = GetComponentsInChildren<IModule>().ToDictionary(m => m.GetType());
+            _moduleDict = GetComponentsInChildren<IModule>().AsValueEnumerable().ToDictionary(m => m.GetType());
             
             InitializeModules();
             AfterInitializeModules();
@@ -20,13 +20,13 @@ namespace _TevLib.ModuleSystem
 
         protected virtual void InitializeModules()
         {
-            foreach (IInitModule initModule in _moduleDict.Values.OfType<IInitModule>())
+            foreach (IInitModule initModule in _moduleDict.Values.AsValueEnumerable().OfType<IInitModule>())
                 initModule.Init(this);
         }
 
         protected virtual void AfterInitializeModules()
         {
-            foreach (IAfterInitModule afterInitModule in _moduleDict.Values.OfType<IAfterInitModule>())
+            foreach (IAfterInitModule afterInitModule in _moduleDict.Values.AsValueEnumerable().OfType<IAfterInitModule>())
                 afterInitModule.AfterInit();
         }
 
@@ -35,7 +35,7 @@ namespace _TevLib.ModuleSystem
             if (_moduleDict.TryGetValue(typeof(T), out IModule module))
                 return (T) module;
             
-            IModule findModule = _moduleDict.Values.FirstOrDefault(m => m is T);
+            IModule findModule = _moduleDict.Values.AsValueEnumerable().FirstOrDefault(m => m is T);
             
             if (findModule is T casted)
                 return casted;

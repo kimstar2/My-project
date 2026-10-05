@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using _TevLib.HashDataSystem;
 using _TevLib.ModuleSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using ZLinq;
 
 namespace _01.Scripts.Agent
 {
@@ -24,6 +24,7 @@ namespace _01.Scripts.Agent
             int hash = animHashSO.HashValue;
             
             List<UnityEvent> events = delegates
+                .AsValueEnumerable()
                 .Where(d => d.animHash.HashValue == hash)
                 .Select(d => d.onEvent).ToList();
             foreach (UnityEvent e in events)

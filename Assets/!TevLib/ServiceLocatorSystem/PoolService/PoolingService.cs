@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using ZLinq;
 
 namespace _TevLib.ServiceLocatorSystem.PoolService
 {
@@ -45,6 +45,7 @@ namespace _TevLib.ServiceLocatorSystem.PoolService
 
         public void Push(IPoolable item)
         {
+            Debug.Log("return");
             if (_poolDict.TryGetValue(item.Item, out Pool pool))
                 pool.Push(item);
         }
@@ -60,7 +61,7 @@ namespace _TevLib.ServiceLocatorSystem.PoolService
         {
             foreach (PoolItemSO t in poolingList.itemList)
             {
-                if (poolItemSetterList.Select(s => s.item).Contains(t)) continue;
+                if (poolItemSetterList.AsValueEnumerable().Select(s => s.item).Contains(t)) continue;
                 
                 PoolItemSetter setter = new PoolItemSetter
                 {

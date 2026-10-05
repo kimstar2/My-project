@@ -34,7 +34,7 @@ namespace _01.Scripts.Agent
         public void SetMaxHealth(float value)
         {
             MaxHealth = value;
-            Health = Mathf.Clamp(value, 0, MaxHealth);
+            _ = Health;
         }
 
 

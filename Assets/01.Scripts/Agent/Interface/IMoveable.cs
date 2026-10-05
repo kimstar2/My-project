@@ -8,5 +8,6 @@ namespace _01.Scripts.Agent.Interface
         public Vector2 MoveDirection { get; }
         void SetDirection(Vector2 direction);
         void StopImmediately();
+        void AddForce(Vector2 force ,float ignoreVelocityTime , ForceMode2D forceMode = ForceMode2D.Force);
     }
 }

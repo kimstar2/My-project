@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _01.Scripts.CombatSystem
@@ -12,7 +14,7 @@ namespace _01.Scripts.CombatSystem
         [SerializeField] private CastType castType;
         [SerializeField] private float radius; // 원형 캐스트 전용
         [SerializeField] private Vector2 boxSize; // 박스 캐스트 전용
-        
+
         public void SetRadius(float value) => radius = value; 
         public void SetBoxSize(Vector2 value) => boxSize = value;
         
@@ -27,20 +29,19 @@ namespace _01.Scripts.CombatSystem
 
             for (int i = 0; i < cnt; i++)
             {
-                if (_hitResult[i].TryGetComponent(out IDamageable damageable))
-                {
-                    Vector2 point = _hitResult[i].ClosestPoint(transform.position); // 가장 가까운 포인트
-                    Vector2 knockbackForce = direction.normalized * kbForce;
+                if (!_hitResult[i].TryGetComponent(out IDamageable damageable)) continue;
+                
+                Vector2 point = _hitResult[i].ClosestPoint(transform.position); // 가장 가까운 포인트
+                Vector2 knockbackForce = direction.normalized * kbForce;
 
-                    DamageData damageData = new DamageData
-                    {
-                        DamageAmount = damage,
-                        Dealer = Owner,
-                        DirectedKBForce = knockbackForce,
-                    };
-                    
-                    damageable.ApplyDamage(damageData , point , direction , -direction);
-                }
+                DamageData damageData = new DamageData
+                {
+                    DamageAmount = damage,
+                    Dealer = Owner,
+                    DirectedKBForce = knockbackForce,
+                };
+                
+                damageable.ApplyDamage(damageData , point , direction , -direction);
             }
             return cnt > 0;
         }

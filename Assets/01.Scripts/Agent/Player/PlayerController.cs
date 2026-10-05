@@ -6,6 +6,7 @@ using _TevLib.ServiceLocatorSystem;
 using _TevLib.ServiceLocatorSystem.PoolService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace _01.Scripts.Agent.Player
 {
@@ -13,7 +14,7 @@ namespace _01.Scripts.Agent.Player
     {
         public GameObject GameObject => gameObject;
 
-        [SerializeField] private PoolItemSO testEnemyData;
+        [SerializeField] private PoolItemSO[] testEnemyData;
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private StateListSO playerFsmList;
 
@@ -46,7 +47,7 @@ namespace _01.Scripts.Agent.Player
         {
             if (Keyboard.current.tKey.wasPressedThisFrame) // 쌩 테스트용임
             {
-                ServiceLocator.GetService<IPoolingService>().Pop(testEnemyData);
+                ServiceLocator.GetService<IPoolingService>().Pop(testEnemyData[Random.Range(0,testEnemyData.Length-1)]);
             }
             ObjectDirectionToPointer();
             _stateMachine.UpdateMachine();

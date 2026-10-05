@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _01.Scripts.UI.Mono
 {
-    public class MonoTMP : MonoBehaviour
+    public abstract class MonoTMP : MonoBehaviour
     {
         protected TextMeshPro TMP;
         private void Awake()

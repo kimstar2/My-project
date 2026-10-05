@@ -6,6 +6,8 @@ namespace _01.Scripts.Agent.Interface
     {
         event Action OnAnimationEnd;
         event Action OnDamageCast;
+        event Action OnStartDamageCast;
+        event Action OnEndDamageCast;
         event Action OnFootstep;
     }
 }

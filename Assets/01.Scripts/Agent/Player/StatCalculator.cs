@@ -2,6 +2,7 @@ using System.Linq;
 using _01.Scripts.ItemSystem;
 using _TevLib.ModuleSystem;
 using UnityEngine;
+using ZLinq;
 
 namespace _01.Scripts.Agent.Player
 {
@@ -13,14 +14,18 @@ namespace _01.Scripts.Agent.Player
             foreach (StatItemDataSO itemDataSo in receiver.StatItems)
                 resultValue += 
                     itemDataSo.ItemStats.
+                        AsValueEnumerable().
                         Where(i => i.ItemStatType == itemType).
                         Select(i=>i).
                         Sum(statData => statData.ApplyValue);
 
             foreach (StatItemDataSO itemDataSo in receiver.StatItems)
             {
-                float multipleValue = itemDataSo.ItemStats.Where(i => i.ItemStatType == itemType).Select(i => i)
-                    .Sum(statData => statData.Multiple);
+                float multipleValue = itemDataSo.ItemStats.
+                    AsValueEnumerable().
+                    Where(i => i.ItemStatType == itemType).
+                    Select(i => i).
+                    Sum(statData => statData.Multiple);
                 if (Mathf.Approximately(multipleValue, 0f))
                     continue;
                 resultValue *= multipleValue;
@@ -30,6 +35,7 @@ namespace _01.Scripts.Agent.Player
             foreach (StatItemDataSO itemDataSo in receiver.StatItems)
                 resultValue += 
                     itemDataSo.ItemStats.
+                        AsValueEnumerable().
                         Where(i => i.ItemStatType == itemType).
                         Select(i=>i).
                         Sum(statData => statData.FinalApplyValue);

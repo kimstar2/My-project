@@ -17,6 +17,7 @@ namespace _01.Scripts.Agent.Player
     {
         [field:SerializeField] public StatItemType ApplyStat {get; private set;}
         [field:SerializeField] public float BaseValue {get; private set;}
+        [field:SerializeField] public float MaxValue {get; private set;}
         [field:SerializeField] public UnityEvent<float> ApplyValue {get; private set;}
 
     }
@@ -30,6 +31,7 @@ namespace _01.Scripts.Agent.Player
         {
             base.Init(owner);
             _statGetter = Owner.GetModule<PlayerStatGetter>(); 
+            Debug.Assert(_statGetter != null, nameof(_statGetter) + " != null");
         }
 
         private void OnEnable() => eventChannelSO.AddListener<OnApplyStat>(HandleApplyStat);
@@ -40,7 +42,7 @@ namespace _01.Scripts.Agent.Player
             foreach (ApplyStatableStruct applyStatable in applyStatableList)
             {
                 float resultValue = _statGetter.GetStat(applyStatable.ApplyStat, applyStatable.BaseValue);
-                applyStatable.ApplyValue.Invoke(resultValue);
+                applyStatable.ApplyValue.Invoke(Mathf.Min(resultValue, applyStatable.MaxValue));
             }
         }
 
@@ -49,7 +51,7 @@ namespace _01.Scripts.Agent.Player
             foreach (ApplyStatableStruct applyStatable in applyStatableList)
             {
                 float resultValue = _statGetter.GetStat(applyStatable.ApplyStat, applyStatable.BaseValue);
-                applyStatable.ApplyValue.Invoke(resultValue);
+                applyStatable.ApplyValue.Invoke(Mathf.Min(resultValue, applyStatable.MaxValue));
             }
         }
     }

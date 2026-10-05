@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using _TevLib.ServiceLocatorSystem;
 using _TevLib.ServiceLocatorSystem.PoolService;
@@ -12,11 +13,17 @@ namespace _TevLib.Extension.ParticleSystem
         public GameObject GameObject => gameObject;
         private float _duration;
         private CancellationTokenSource _cts;
+        private IPoolingService _poolingService;
 
         protected override void Awake()
         {
             base.Awake();
             _duration = Main.duration;
+        }
+
+        private void Start()
+        {
+            _poolingService = ServiceLocator.GetService<IPoolingService>();
         }
 
         public void SetPositionAndPlay(Vector3 position)
@@ -45,7 +52,7 @@ namespace _TevLib.Extension.ParticleSystem
 
         public void ReturnGoToPool()
         {
-            ServiceLocator.GetService<IPoolingService>()?.Push(this);
+            _poolingService?.Push(this);
         }
         
         # endregion

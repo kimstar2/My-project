@@ -1,4 +1,3 @@
-using System.Linq;
 using _TevLib.ModuleSystem;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ namespace _01.Scripts.Agent.Enemies
         public GameObject IsTargetInRadius(float radius)
         {
             int count = GetAllTargetsInRadius(radius);
-            return count > 0 ? ColliderResults.First().gameObject : null;
+            return count > 0 ? ColliderResults[0].gameObject : null;
         }
 
         public GameObject GetClosestTarget(float radius)

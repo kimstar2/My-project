@@ -22,6 +22,12 @@ namespace _01.Scripts.Util
         [SerializeField] private bool independentTime;
         [SerializeField] private List<WaitAndPlayStep> steps;
         private CancellationTokenSource _cts;
+        private ITimeService _timeService;
+
+        private void Start()
+        {
+            _timeService = ServiceLocator.GetService<ITimeService>();
+        }
 
         [ContextMenu("Play")]
         public void Play()
@@ -41,7 +47,7 @@ namespace _01.Scripts.Util
                 step.action.Invoke();
                 try
                 {
-                    await ServiceLocator.GetService<ITimeService>().Timer(step.nextTime,_cts.Token,independentTime);
+                    await _timeService.Timer(step.nextTime,_cts.Token,independentTime);
                 }
                 catch (Exception)
                 {

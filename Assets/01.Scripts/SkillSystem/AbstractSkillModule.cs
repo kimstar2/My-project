@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using _TevLib.ModuleSystem;
 using UnityEngine;
+using ZLinq;
 
 namespace _01.Scripts.SkillSystem
 {
@@ -18,6 +18,7 @@ namespace _01.Scripts.SkillSystem
         {
             base.Init(owner);
             _skillDict = GetComponentsInChildren<ISkill>()
+                .AsValueEnumerable()
                 .ToDictionary(s => s.SkillData.skillIdHash);
 
             foreach (ISkill skill in _skillDict.Values)

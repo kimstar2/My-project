@@ -33,7 +33,6 @@ namespace _01.Scripts.Agent.Player.Skill
 
             _damageCaster = GetComponentInChildren<AbstractDamageCaster>();
             _damageCaster?.InitCaster(skillModule.Owner);
-            onBindDamage?.Invoke(SkillModule.GetBaseDamage(SkillData));
         }
         
         public void SetDamage(float value)

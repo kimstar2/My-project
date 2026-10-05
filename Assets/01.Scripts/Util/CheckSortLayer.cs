@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using _TevLib.Editor.PropertyAttribute;
 using UnityEngine;
+using ZLinq;
 
 namespace _01.Scripts.Util
 {
@@ -31,7 +32,7 @@ namespace _01.Scripts.Util
         {
             foreach (SortingLayer sortingLayer in SortingLayer.layers)
             {
-                List<string> d = sortingLayerList.Select(l => l.sortingLayerName).ToList();
+                List<string> d = sortingLayerList.AsValueEnumerable().Select(l => l.sortingLayerName).ToList();
                 if (d.Contains(sortingLayer.name)) continue;
                 SortingLayerList newList = new SortingLayerList {
                     sortingLayerName = sortingLayer.name, };

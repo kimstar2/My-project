@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using _01.Scripts.GameSystem;
 using _01.Scripts.ItemSystem;
 using _01.Scripts.SkillSystem;
 using _TevLib.ModuleSystem;
 using UnityEngine;
+using ZLinq;
 
 namespace _01.Scripts.Agent.Player
 {
@@ -45,6 +45,7 @@ namespace _01.Scripts.Agent.Player
         private void CacheBasicAttack()
         {
             ISkill basicSkill = _skillDict.Values
+                .AsValueEnumerable()
                 .FirstOrDefault(s => s.SkillData.skillCategory == SkillCategory.BasicAttack);
 
             if (basicSkill == null)

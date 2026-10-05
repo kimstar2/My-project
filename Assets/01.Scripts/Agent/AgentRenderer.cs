@@ -46,11 +46,16 @@ namespace _01.Scripts.Agent
 
         public event Action OnAnimationEnd;
         public event Action OnDamageCast;
+        public event Action OnStartDamageCast;
+        public event Action OnEndDamageCast;
         public event Action OnFootstep;
 
         private void HandleAnimationEnd() => OnAnimationEnd?.Invoke();
         private void HandleDamageCast() => OnDamageCast?.Invoke();
         private void HandleFootstep() => OnFootstep?.Invoke();
+        private void HandleStartDamageCast() => OnStartDamageCast?.Invoke();
+        private void HandleEndDamageCast() => OnEndDamageCast?.Invoke();
+        
         #endregion
     }
 }
