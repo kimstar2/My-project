@@ -166,10 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: 1181445345381293824, guid: 4934a3e9a93236d47959cd4f78f13ad6, type: 2}
+  m_Graph: {fileID: -392559276693441385, guid: 4934a3e9a93236d47959cd4f78f13ad6, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 69567652788174848
-  - rid: 69567652922130902
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -184,14 +183,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 2890917519915326593}
-    - rid: 69567652922130902
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 3772071176222832020
-          m_Value1: 14795254610710809402
-        Name: TargetGO
-        m_Value: {fileID: 0}
 --- !u!114 &1412384713624449430
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,11 +7,12 @@ using UnityEngine;
 namespace _01.Scripts.Agent.Enemies.BT.Action
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "ChaseToTargetAction", story: "[Enemy] chase to [TargetGO]", category: "Action", id: "5c95a9476c811db000c6067618c86f47")]
+    [NodeDescription(name: "ChaseToTargetAction", story: "[Enemy] chase to [TargetGO] and [Stop] in AttackRange", category: "Action", id: "5c95a9476c811db000c6067618c86f47")]
     public partial class ChaseToTargetAction : Unity.Behavior.Action
     {
         [SerializeReference] public BlackboardVariable<AbstractEnemy> Enemy;
         [SerializeReference] public BlackboardVariable<GameObject> TargetGO;
+        [SerializeReference] public BlackboardVariable<bool> Stop;
 
         private AbstractEnemy _enemy;
         private NavModule _nav;
@@ -35,6 +36,17 @@ namespace _01.Scripts.Agent.Enemies.BT.Action
             toTarget.z = 0;
 
             float stopDistance = _enemy.EnemyData.StopDistance;
+
+            if (Stop)
+            {
+                float attackDistance = _enemy.EnemyData.AttackRange;
+                if (toTarget.sqrMagnitude <= attackDistance * attackDistance)
+                {
+                    _nav.Stop();
+                    return Status.Success;
+                }
+            }
+            
             if (toTarget.sqrMagnitude <= stopDistance * stopDistance)
             {
                 _nav.Stop();

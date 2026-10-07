@@ -18,8 +18,8 @@ MonoBehaviour:
   skillCategory: 1
   skillType: 0
   directionType: 0
-  canMove: 0
-  maxRange: 2
+  canMove: 1
+  maxRange: 5
   defaultAnimHash: {fileID: 11400000, guid: d15cbc98fc328c14cad1f5e8f683e928, type: 2}
   NotifyDamageMultiplier:
     value: 1

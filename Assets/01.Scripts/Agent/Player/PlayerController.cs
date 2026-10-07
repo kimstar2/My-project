@@ -47,7 +47,7 @@ namespace _01.Scripts.Agent.Player
         {
             if (Keyboard.current.tKey.wasPressedThisFrame) // 쌩 테스트용임
             {
-                ServiceLocator.GetService<IPoolingService>().Pop(testEnemyData[Random.Range(0,testEnemyData.Length-1)]);
+                ServiceLocator.GetService<IPoolingService>().Pop(testEnemyData[Random.Range(0,testEnemyData.Length)]);
             }
             ObjectDirectionToPointer();
             _stateMachine.UpdateMachine();

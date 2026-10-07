@@ -264,6 +264,7 @@ namespace _TevLib.Extension.DoT
             return _spriteRenderer.DOColor(step.ColorValue, step.Duration);
         }
 
+        
         private Tween CreateFadeTween(TweenStep step)
         {
             float alpha = Mathf.Clamp01(step.FadeValue);
@@ -330,6 +331,17 @@ namespace _TevLib.Extension.DoT
             TweenStep tempStep = sequenceStep[i];
             tempStep.SetTransformValue(value);
             sequenceStep[i] = tempStep;
+        }
+
+        public void SetStep(List<TweenStep> steps)
+        {
+            sequenceStep = steps;
+        }
+
+        public void SetAndSeq(List<TweenStep> steps)
+        {
+            SetStep(steps);
+            Sequence();
         }
 
         #endregion

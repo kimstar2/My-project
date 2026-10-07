@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace _01.Scripts.SkillSystem
@@ -6,7 +7,12 @@ namespace _01.Scripts.SkillSystem
     public abstract class AbstractSkill : MonoBehaviour , ISkill
     {
         public event Action<ISkill> OnSkillEnd;
-        [field:SerializeField] public SkillDataSO SkillData { get; private set; }
+        
+        // 스킬 설명인데 귀찮아서 field 붙힘
+        [field:SerializeField]
+        [field:Header("AttackRangeView Set")]
+        [field:HorizontalLine(color: EColor.Gray)]
+        public SkillDataSO SkillData { get; private set; }
         public SkillDataSO RuntimeSkillData {get; protected set;}
 
         protected float LastUsedTime = float.NegativeInfinity;

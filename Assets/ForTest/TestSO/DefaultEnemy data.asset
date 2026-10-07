@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67d36a0241d441f293661000cee61c06, type: 3}
-  m_Name: Enemy data
+  m_Name: DefaultEnemy data
   m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.Agent.Enemies.EnemyDataSO
   <StopDistance>k__BackingField: 1.5
   <DetectRadius>k__BackingField: 8
   <AttackRange>k__BackingField: 3
-  <SignalLostRange>k__BackingField: 15
+  <SignalLostRange>k__BackingField: 30

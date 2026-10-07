@@ -18,10 +18,12 @@ MonoBehaviour:
   skillCategory: 1
   skillType: 0
   directionType: 0
-  canMove: 0
+  canMove: 1
   maxRange: 3
   defaultAnimHash: {fileID: 11400000, guid: d15cbc98fc328c14cad1f5e8f683e928, type: 2}
-  damageMultiplier: 1
-  baseSkillDamage: 8
+  NotifyDamageMultiplier:
+    value: 1
+  NotifyBaseSkillDamage:
+    value: 3
   kbForce: 0
   cooldownTime: 0.8

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.Agent.Enemies.EnemyDataSO
   <StopDistance>k__BackingField: 1.5
   <DetectRadius>k__BackingField: 8
-  <AttackRange>k__BackingField: 3
-  <SignalLostRange>k__BackingField: 15
+  <AttackRange>k__BackingField: 5
+  <SignalLostRange>k__BackingField: 30
