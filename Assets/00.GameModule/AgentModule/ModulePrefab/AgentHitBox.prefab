@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2559557085934204806}
-  - component: {fileID: 3893882409052116589}
   - component: {fileID: 1531641581789819854}
+  - component: {fileID: 2578962698090920243}
   m_Layer: 7
   m_Name: AgentHitBox
   m_TagString: Untagged
@@ -33,27 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3893882409052116589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7548851784678030236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58985905bcbb43648e50c33f005a79b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.CombatSystem.HitBox
-  onHitPoint:
-    m_PersistentCalls:
-      m_Calls: []
-  onHitDirection:
-    m_PersistentCalls:
-      m_Calls: []
-  onHitNormal:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &1531641581789819854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -98,5 +77,27 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.5, y: 2.5}
   m_EdgeRadius: 0
+--- !u!114 &2578962698090920243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548851784678030236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ec4e9920664be1a7ac7c7d9b1aa17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_01.Scripts.CombatSystem.KnockbackableHitbox
+  onHitPoint:
+    m_PersistentCalls:
+      m_Calls: []
+  onHitDirection:
+    m_PersistentCalls:
+      m_Calls: []
+  onHitNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  knockbackTime: 0.5

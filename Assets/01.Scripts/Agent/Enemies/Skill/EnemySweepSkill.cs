@@ -38,7 +38,7 @@ namespace _01.Scripts.Agent.Enemies.Skill
         public override void UseSkill(GameObject target = null)
         {
             base.UseSkill(target);
-            _mover.StopImmediately();
+            _mover.Stop();
 
             if (target != null && SkillData.directionType == DirectionType.Body)
             {

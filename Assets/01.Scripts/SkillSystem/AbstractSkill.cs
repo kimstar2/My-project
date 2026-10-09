@@ -11,7 +11,7 @@ namespace _01.Scripts.SkillSystem
         // 스킬 설명인데 귀찮아서 field 붙힘
         [field:SerializeField]
         [field:Header("AttackRangeView Set")]
-        [field:HorizontalLine(color: EColor.Gray)]
+        [field:HorizontalLineAttribute(color: EColor.Gray)]
         public SkillDataSO SkillData { get; private set; }
         public SkillDataSO RuntimeSkillData {get; protected set;}
 

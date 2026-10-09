@@ -6,9 +6,10 @@ using UnityEngine.Events;
 
 namespace _01.Scripts.CombatSystem
 {
-    public class HitBox : MonoModule , IDamageable
+    public class HitBox : MonoModule , IDamageable 
     {
         private HealthModule _healthModule;
+        
         public Collider2D HitBoxCollider {get; private set;}
         [Header("HitData")]
         public UnityEvent<Vector3> onHitPoint;
@@ -18,11 +19,11 @@ namespace _01.Scripts.CombatSystem
         public override void Init(ModuleOwner owner)
         {
             base.Init(owner);
-            _healthModule = owner.GetModule<HealthModule>();
             HitBoxCollider = GetComponent<Collider2D>();
+            _healthModule = owner.GetModule<HealthModule>();
         }
 
-        public void ApplyDamage(DamageData damageData, Vector2 hitPoint, Vector2 hitDirection, Vector2 hitNormal)
+        public virtual void ApplyDamage(DamageData damageData, Vector2 hitPoint, Vector2 hitDirection, Vector2 hitNormal)
         {
             onHitPoint.Invoke(hitPoint);
             onHitDirection.Invoke(hitDirection);

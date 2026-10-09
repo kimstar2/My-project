@@ -1,4 +1,5 @@
-﻿using _TevLib.Extension.ParticleSystem;
+﻿using _TevLib.Extension.Particle;
+using _TevLib.Extension;
 using UnityEngine;
 
 namespace _01.Scripts.Util

@@ -25,5 +25,5 @@ MonoBehaviour:
     value: 2
   NotifyBaseSkillDamage:
     value: 1
-  kbForce: 0
+  kbForce: 1
   cooldownTime: 0.5

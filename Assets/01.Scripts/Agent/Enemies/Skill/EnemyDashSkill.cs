@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using _01.Scripts.Agent.Interface;
 using _01.Scripts.CombatSystem;
 using _01.Scripts.SkillSystem;
@@ -17,11 +18,21 @@ namespace _01.Scripts.Agent.Enemies.Skill
 {
     public class EnemyDashSkill : AbstractSkill
     {
+        [Header("Dash Settings")]
+        [HorizontalLineAttribute(color: EColor.Gray)]
+        [SerializeField] private bool useCurve;
+        [HideIf("useCurve")]
+        [SerializeField] private Ease knockbackEase; 
+        
+        [ShowIf("useCurve")]
+        [SerializeField] private AnimationCurve knockbackCurve; 
+        
         [SerializeField] private float dashRange = 5f;
         [SerializeField] private float dashTime = 2f;
+        
      
-        [Header("AttackRangeView Set")]
-        [HorizontalLine(color: EColor.Gray)]
+        [Header("AttackRangeView Settings")]
+        [HorizontalLineAttribute(color: EColor.Gray)]
         [SerializeField] private Transform pivotTransform;
         [SerializeField] private MonoSprite viewSprite;
         [SerializeField] private TweenStep onRangeStep;
@@ -30,14 +41,14 @@ namespace _01.Scripts.Agent.Enemies.Skill
         [SerializeField] private TweenStep offRangeStep;
         [SerializeField] private Vector3 offViewRange;
         
-        [Header("Fade Set")]
-        [HorizontalLine(color: EColor.Gray)]
+        [Header("Fade Settings")]
+        [HorizontalLineAttribute(color: EColor.Gray)]
         [SerializeField] private TweenStep fadeInStep;
         [SerializeField] private TweenStep fadeOutStep;
         [SerializeField] private float fadeInValue,fadeOutValue;
         
         [Header("DamageCast Event")]
-        [HorizontalLine(color: EColor.Gray)]
+        [HorizontalLineAttribute(color: EColor.Gray)]
         public UnityEvent onStartDamageCast;
         public UnityEvent onEndDamageCast;
         
@@ -70,11 +81,30 @@ namespace _01.Scripts.Agent.Enemies.Skill
             return Vector2.Distance(transform.position, target.transform.position) <= SkillData.maxRange;
         }
 
-        public override async void UseSkill(GameObject target = null)
+        public override void UseSkill(GameObject target = null)
         {
             base.UseSkill(target);
-            _mover.StopImmediately();
+            SkillAsync(target).Forget();
+        }
 
+        public override void CleanUpSkillData()
+        {
+            UTaskUtil.Kill(ref _logicCts);
+            OffViewAttackRange();
+            
+            _trigger.OnAnimationEnd -= HandleSkillAnimationEnd;
+            _trigger.OnStartDamageCast -= HandleStartDamageCast;
+            _trigger.OnEndDamageCast -= HandleEndDamageCast;
+            base.CleanUpSkillData();
+        }
+        
+        #endregion
+
+        #region Logic
+
+        private async UniTask SkillAsync(GameObject target)
+        {
+            _mover.Stop();
             
             if (target != null && SkillData.directionType == DirectionType.Body)
             {
@@ -104,21 +134,6 @@ namespace _01.Scripts.Agent.Enemies.Skill
                 _renderer.RenderClip(SkillData.defaultAnimHash.HashValue);
         }
         
-        public override void CleanUpSkillData()
-        {
-            UTaskUtil.Kill(ref _logicCts);
-            OffViewAttackRange();
-            
-            _trigger.OnAnimationEnd -= HandleSkillAnimationEnd;
-            _trigger.OnStartDamageCast -= HandleStartDamageCast;
-            _trigger.OnEndDamageCast -= HandleEndDamageCast;
-            base.CleanUpSkillData();
-        }
-        
-        #endregion
-
-        #region Logic
-
         private async UniTask OnViewAttackRange(CancellationToken ct)
         {
             TweenDelegator.SetDOFade(viewSprite.Sr,fadeInValue,fadeInStep);
@@ -136,7 +151,10 @@ namespace _01.Scripts.Agent.Enemies.Skill
 
         private void Dash(Vector2 normalizeDir)
         {
-            _mover.AddForce(normalizeDir * dashRange, dashTime,ForceMode2D.Impulse);
+            if (useCurve)
+                _mover.AddForce(normalizeDir * dashRange, dashTime,knockbackCurve ,ForceMode2D.Impulse);
+            else
+                _mover.AddForce(normalizeDir * dashRange, dashTime,knockbackEase,ForceMode2D.Impulse);
         }
 
         #endregion

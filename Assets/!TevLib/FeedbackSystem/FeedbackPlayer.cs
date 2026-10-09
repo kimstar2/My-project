@@ -34,17 +34,34 @@ namespace _TevLib.FeedbackSystem
             _feedbacks.Remove(feedback);
         }
 
-        public void PlayAllFeedback() =>
-            _feedbacks.ForEach(f => f.PlayFeedback());
+        public void PlayAllFeedback()
+        {
+            foreach (AbstractFeedback f in _feedbacks)
+                f.PlayFeedback();
+        }
 
-        public void StopAllFeedback() =>
-            _feedbacks.ForEach(f => f.StopFeedback());
+        public void StopAllFeedback()
+        {
+            foreach (AbstractFeedback f in _feedbacks)
+                f.StopFeedback();
+        }
         
 
         public void ClearFeedback()
         {
             StopAllFeedback();
             _feedbacks.Clear();
+        }
+
+        public void SetFeedbackDir(Vector3 direction)
+        {
+            Vector2 dir = transform.position + direction - transform.position;
+            
+            foreach (AbstractFeedback f in _feedbacks)
+            {
+                if (f is IFeedbackDir fbA)
+                    fbA.SetDirAndPlay(dir.normalized);
+            }
         }
     }
 }

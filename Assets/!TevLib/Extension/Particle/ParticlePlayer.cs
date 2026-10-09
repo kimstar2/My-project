@@ -1,14 +1,14 @@
-using System;
 using System.Threading;
 using _TevLib.ServiceLocatorSystem;
 using _TevLib.ServiceLocatorSystem.PoolService;
 using _TevLib.ServiceLocatorSystem.TimeService;
 using UnityEngine;
 
-namespace _TevLib.Extension.ParticleSystem
+namespace _TevLib.Extension.Particle
 {
     public class ParticlePlayer : MonoParticle , IPoolable
     {
+        [field:SerializeField] public ParticleDirSetting ParticleDirSet { get; private set; }
         [field:SerializeField] public PoolItemSO Item { get; private set; }
         public GameObject GameObject => gameObject;
         private float _duration;
@@ -47,6 +47,9 @@ namespace _TevLib.Extension.ParticleSystem
             ParticleSystem.Simulate(0);
         }
         
+        public void SetDir(Vector2 dir) 
+            => ParticlePlayerUtil.SetParticleDir(ref ParticleSystem ,dir * ParticleDirSet.Multi, ParticleDirSet.ParticleDirType);
+
         # region Pool
         public void ResetItem() => ParticleStop();
 

@@ -1,19 +1,27 @@
 using System;
-using _TevLib.Editor.PropertyAttribute;
 using _TevLib.ModuleSystem;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace _01.Scripts.Agent
 {
-    public delegate void HealthChanged(float health, float maxHealth); // 매개변수 이름 암시
     
     public class HealthModule : MonoModule
     {
+        [field:Header("HealthSet")]
+        [field:HorizontalLineAttribute(color: EColor.Gray)]
         [field:SerializeField] public float MaxHealth {get; private set;}
-        [field: SerializeField, ReadOnly] public float ReadOnlyHealth { get; private set; }
-        
+        [field: SerializeField, _TevLib.Editor.PropertyAttribute.ReadOnly] public float ReadOnlyHealth { get; private set; }
+
+        [Header("Events")]
+        [HorizontalLineAttribute(color: EColor.Gray)]
+        [SerializeField] private bool onRaiseCurrentHealth; 
         public UnityEvent<float,float> onHealthChanged;
+        
+        [ShowIf("onRaiseCurrentHealth")]
+        public UnityEvent<float> onCurrentHealth;
+        
         public UnityEvent<float> onTakeDamage;
         public UnityEvent onDead;
         public event Action OnHit;
@@ -27,6 +35,8 @@ namespace _01.Scripts.Agent
                 _health = Mathf.Clamp(value, 0, MaxHealth);
                 ReadOnlyHealth = _health;
                 onHealthChanged?.Invoke(_health, MaxHealth);
+                if (onRaiseCurrentHealth)
+                    onCurrentHealth?.Invoke(_health);
             }
         }
         public bool IsDead { get; private set; }
@@ -37,10 +47,8 @@ namespace _01.Scripts.Agent
             _ = Health;
         }
 
-
-        public override void Init(ModuleOwner owner)
+        private void Start()
         {
-            base.Init(owner);
             HealthInit();
         }
 

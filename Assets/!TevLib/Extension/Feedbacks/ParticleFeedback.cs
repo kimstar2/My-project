@@ -1,4 +1,4 @@
-using _TevLib.Extension.ParticleSystem;
+using _TevLib.Extension.Particle;
 using _TevLib.FeedbackSystem;
 using _TevLib.ServiceLocatorSystem;
 using _TevLib.ServiceLocatorSystem.PoolService;
@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _TevLib.Extension.Feedbacks
 {
-    public class ParticleFeedback : AbstractFeedback
+    public class ParticleFeedback : AbstractFeedback , IFeedbackDir
     {
         [SerializeField] private PoolItemSO particleItemSo;
         [SerializeField] private Transform defaultTrm;
@@ -29,6 +29,13 @@ namespace _TevLib.Extension.Feedbacks
         {
             _crtParticlePlayer = ServiceLocator.GetService<IPoolingService>().Pop(particleItemSo) as ParticlePlayer;
             _crtParticlePlayer?.SetPositionAndPlay(position);
+        }
+
+        public void SetDirAndPlay(Vector2 dir)
+        {
+            _crtParticlePlayer = ServiceLocator.GetService<IPoolingService>().Pop(particleItemSo) as ParticlePlayer;
+            _crtParticlePlayer?.SetDir(dir);
+            _crtParticlePlayer?.SetPositionAndPlay(defaultTrm.position);
         }
     }
 }

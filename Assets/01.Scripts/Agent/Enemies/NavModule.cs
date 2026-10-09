@@ -64,7 +64,7 @@ namespace _01.Scripts.Agent.Enemies
         public void Stop()
         {
             if(_isActive)
-                _mover.StopImmediately();
+                _mover.Stop();
             
             _isActive = false;
             _pathAgent.ResetPath();
@@ -127,7 +127,7 @@ namespace _01.Scripts.Agent.Enemies
             {
                 _currentIndex++;
                 if (_currentIndex >= _pathLength)
-                    _mover.StopImmediately();
+                    _mover.Stop();
             }
             else
                 _mover.SetDirection(delta);
